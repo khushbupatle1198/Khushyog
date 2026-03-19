@@ -13,22 +13,15 @@ export default defineConfig({
     outDir: 'dist',
     assetsDir: 'assets',
     sourcemap: false,
-    minify: 'terser',
+    minify: 'esbuild', // Change to esbuild (built-in, no extra dependencies)
     rollupOptions: {
       output: {
         manualChunks: (id) => {
-          // This is the correct function format for Vite v8
           if (id.includes('node_modules')) {
-            if (id.includes('react')) {
-              return 'vendor-react';
-            }
-            if (id.includes('framer-motion')) {
-              return 'vendor-framer';
-            }
-            if (id.includes('react-router-dom')) {
-              return 'vendor-router';
-            }
-            return 'vendor'; // all other node_modules
+            if (id.includes('react')) return 'vendor-react';
+            if (id.includes('framer-motion')) return 'vendor-framer';
+            if (id.includes('react-router-dom')) return 'vendor-router';
+            return 'vendor';
           }
         }
       }
