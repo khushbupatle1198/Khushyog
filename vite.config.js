@@ -6,7 +6,7 @@ export default defineConfig({
   plugins: [react()],
   server: {
     port: 5173,
-    host: true, // Listen on all addresses
+    host: true,
     open: true
   },
   build: {
@@ -16,11 +16,23 @@ export default defineConfig({
     minify: 'terser',
     rollupOptions: {
       output: {
-        manualChunks: {
-          vendor: ['react', 'react-dom', 'framer-motion', 'react-router-dom'],
-        },
-      },
-    },
+        manualChunks: (id) => {
+          // This is the correct function format for Vite v8
+          if (id.includes('node_modules')) {
+            if (id.includes('react')) {
+              return 'vendor-react';
+            }
+            if (id.includes('framer-motion')) {
+              return 'vendor-framer';
+            }
+            if (id.includes('react-router-dom')) {
+              return 'vendor-router';
+            }
+            return 'vendor'; // all other node_modules
+          }
+        }
+      }
+    }
   },
   preview: {
     port: 4173,
