@@ -1,13 +1,99 @@
+<!-- index.html -->
 <!doctype html>
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
     <link rel="icon" type="image/svg+xml" href="/images/logo.jpeg" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=5.0, user-scalable=yes" />
+    <meta name="theme-color" content="#8B5E3C" />
+    <meta name="description" content="Khushyog - Yoga, Meditation & Healing for a Balanced Life" />
+    <meta name="keywords" content="yoga, meditation, healing, pranic healing, theta healing, nagpur" />
+    <meta name="author" content="Khushyog" />
+    
+    <!-- Open Graph / Social Media Meta Tags -->
+    <meta property="og:title" content="Khushyog - Yoga, Meditation & Healing" />
+    <meta property="og:description" content="A space where ancient yogic practices meet modern healing techniques" />
+    <meta property="og:image" content="/images/logo.jpeg" />
+    <meta property="og:url" content="https://khushyog.vercel.app" />
+    
+    <!-- Preload critical assets -->
+    <link rel="preload" href="/src/index.css" as="style" />
+    <link rel="preload" href="/src/App.css" as="style" />
+    
+    <!-- Critical inline CSS to ensure content is visible immediately -->
+    <style>
+      /* Critical CSS - This will always load even if external CSS fails */
+      * {
+        margin: 0;
+        padding: 0;
+        box-sizing: border-box;
+      }
+      
+      html, body {
+        width: 100%;
+        min-height: 100vh;
+        background-color: #FDF8F5;
+        color: #2C1810;
+        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
+        overflow-x: hidden;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      
+      body {
+        margin: 0;
+        padding: 0;
+        display: block;
+      }
+      
+      #root {
+        min-height: 100vh;
+        display: flex;
+        flex-direction: column;
+        background-color: #FDF8F5;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      
+      .app {
+        flex: 1;
+        display: flex;
+        flex-direction: column;
+        min-height: 100vh;
+        background-color: #FDF8F5;
+      }
+      
+      .main-content {
+        flex: 1;
+        background-color: #FDF8F5;
+      }
+      
+      /* Ensure text is visible */
+      h1, h2, h3, h4, h5, h6, p, span, div {
+        color: inherit;
+        visibility: visible !important;
+        opacity: 1 !important;
+      }
+      
+      /* Loading indicator */
+      .loading {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        min-height: 100vh;
+        background-color: #FDF8F5;
+        color: #8B5E3C;
+        font-size: 1.2rem;
+      }
+    </style>
+    
     <title>Khushyog - Yoga, Meditation & Healing</title>
   </head>
   <body>
-    <div id="root"></div>
+    <div id="root">
+      <!-- Loading indicator while React loads -->
+      <div class="loading">Loading Khushyog...</div>
+    </div>
     <script type="module" src="/src/main.jsx"></script>
   </body>
 </html>
