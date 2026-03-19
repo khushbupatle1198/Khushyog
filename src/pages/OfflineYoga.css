@@ -1,0 +1,312 @@
+/* pages/OfflineYoga.css */
+.offline-yoga {
+  overflow-x: hidden;
+}
+
+/* Yoga Hero Section */
+.yoga-hero {
+  min-height: 70vh;
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+}
+
+.yoga-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M50 10 L60 40 L90 40 L65 60 L75 90 L50 70 L25 90 L35 60 L10 40 L40 40 Z" fill="white"/></svg>');
+  background-size: 50px;
+  opacity: 0.1;
+}
+
+.yoga-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.yoga-hero h1 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+}
+.yoga-hero-title {
+  font-size: 4rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+}
+
+.yoga-hero-subtitle {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.8;
+}
+
+/* Benefits Section */
+.benefits-section {
+  background: var(--white);
+  padding: 100px 20px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.benefit-card {
+  background: var(--background);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: var(--gradient);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.benefit-card:hover::before {
+  transform: scaleX(1);
+}
+
+.benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.benefit-card h3 {
+  font-size: 1.5rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.benefit-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Schedule Section */
+.schedule-section {
+  background: linear-gradient(135deg, rgba(139, 94, 60, 0.05) 0%, rgba(183, 110, 75, 0.05) 100%);
+  padding: 100px 20px;
+}
+
+.schedule-container {
+  max-width: 1000px;
+  margin: 0 auto;
+  background: var(--white);
+  border-radius: 20px;
+  padding: 2rem;
+  box-shadow: var(--shadow);
+}
+
+.schedule-table {
+  width: 100%;
+  border-collapse: collapse;
+}
+
+.schedule-table th {
+  text-align: left;
+  padding: 1rem;
+  background: var(--gradient);
+  color: var(--white);
+  font-weight: 600;
+}
+
+.schedule-table th:first-child {
+  border-radius: 10px 0 0 10px;
+}
+
+.schedule-table th:last-child {
+  border-radius: 0 10px 10px 0;
+}
+
+.schedule-table td {
+  padding: 1rem;
+  border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.schedule-table tr:hover td {
+  background: var(--background);
+}
+
+/* Pricing Section */
+.pricing-section {
+  background: var(--white);
+  padding: 100px 20px;
+}
+
+.pricing-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.pricing-card {
+  background: var(--background);
+  border-radius: 20px;
+  padding: 2rem;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.pricing-card.popular {
+  background: var(--white);
+  box-shadow: var(--shadow-hover);
+  transform: scale(1.05);
+  border: 2px solid var(--primary);
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: var(--shadow-hover);
+}
+
+.pricing-card.popular:hover {
+  transform: scale(1.05) translateY(-10px);
+}
+
+.popular-badge {
+  position: absolute;
+  top: -12px;
+  left: 50%;
+  transform: translateX(-50%);
+  background: var(--gradient);
+  color: var(--white);
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  font-weight: 600;
+  white-space: nowrap;
+}
+
+.plan-name {
+  font-size: 1.8rem;
+  color: var(--primary-dark);
+  margin-bottom: 1rem;
+}
+
+.plan-price {
+  margin-bottom: 2rem;
+}
+
+.price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: var(--primary);
+}
+
+.plan-features {
+  list-style: none;
+  margin-bottom: 2rem;
+}
+
+.plan-features li {
+  margin-bottom: 0.8rem;
+  color: var(--text-light);
+}
+
+.plan-btn {
+  width: 100%;
+  text-align: center;
+}
+
+/* Yoga CTA */
+.yoga-cta {
+  background: linear-gradient(135deg, var(--primary) 0%, var(--primary-light) 100%);
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.yoga-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.yoga-cta-content h2 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.yoga-cta-content p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+.yoga-cta .btn-primary {
+  background: var(--white);
+  color: var(--primary);
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .yoga-hero-title {
+    font-size: 3rem;
+  }
+  
+  .yoga-hero-subtitle {
+    font-size: 1.2rem;
+  }
+  
+  .pricing-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .pricing-card.popular {
+    transform: scale(1);
+  }
+}
+
+@media (max-width: 768px) {
+  .yoga-hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .schedule-container {
+    overflow-x: auto;
+  }
+  
+  .pricing-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .yoga-cta-content h2 {
+    font-size: 2rem;
+  }
+}

@@ -1,0 +1,370 @@
+/* pages/Meditation.css */
+.meditation {
+  overflow-x: hidden;
+}
+
+/* Meditation Hero Section */
+.meditation-hero {
+  min-height: 70vh;
+  background: linear-gradient(135deg, #6B5B95 0%, #9B8BC2 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  overflow: hidden;
+}
+
+.meditation-hero::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" opacity="0.1"><path d="M50 20 L55 35 L70 35 L60 45 L65 60 L50 52 L35 60 L40 45 L30 35 L45 35 Z" fill="white"/></svg>');
+  background-size: 60px;
+  opacity: 0.2;
+  animation: float 20s linear infinite;
+}
+
+.meditation-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.meditation-hero h1 {
+  font-size: 4rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  animation: fadeInUp 1s ease;
+}
+
+.meditation-hero p {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.8;
+  animation: fadeInUp 1s ease 0.2s both;
+}
+
+/* Introduction Section */
+.meditation-intro {
+  background: var(--white);
+  padding: 100px 20px;
+}
+
+.intro-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.intro-text p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.intro-quote {
+  background: linear-gradient(135deg, #f8f5ff 0%, #f0eaff 100%);
+  padding: 3rem;
+  border-radius: 30px;
+  position: relative;
+}
+
+.intro-quote::before {
+  content: '"';
+  position: absolute;
+  top: -20px;
+  left: 20px;
+  font-size: 8rem;
+  color: #6B5B95;
+  opacity: 0.2;
+  font-family: serif;
+}
+
+.intro-quote blockquote {
+  font-size: 1.5rem;
+  font-style: italic;
+  color: #6B5B95;
+  line-height: 1.6;
+  position: relative;
+  z-index: 1;
+}
+
+.intro-quote footer {
+  margin-top: 1rem;
+  font-size: 1rem;
+  color: #9B8BC2;
+  font-style: normal;
+}
+
+/* Benefits Grid */
+.meditation-benefits {
+  background: linear-gradient(135deg, #f5f0ff 0%, #faf5ff 100%);
+  padding: 100px 20px;
+}
+
+.benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 3rem auto 0;
+}
+
+.benefit-icon-circle {
+  width: 80px;
+  height: 80px;
+  background: linear-gradient(135deg, #6B5B95 0%, #9B8BC2 100%);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 2.5rem;
+  margin: 0 auto 1.5rem;
+  color: var(--white);
+  transition: all 0.3s ease;
+}
+
+.benefit-card:hover .benefit-icon-circle {
+  transform: rotate(360deg) scale(1.1);
+}
+
+/* Techniques Section */
+.techniques-section {
+  background: var(--white);
+  padding: 100px 20px;
+}
+
+.techniques-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 3rem auto 0;
+}
+
+.technique-card {
+  background: linear-gradient(135deg, #f8f5ff 0%, #f0eaff 100%);
+  padding: 2rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.technique-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #6B5B95 0%, #9B8BC2 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.technique-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(107, 91, 149, 0.2);
+}
+
+.technique-card:hover::before {
+  transform: scaleX(1);
+}
+
+.technique-card h3 {
+  font-size: 1.5rem;
+  color: #6B5B95;
+  margin-bottom: 0.5rem;
+}
+
+.technique-duration {
+  display: inline-block;
+  background: linear-gradient(135deg, #6B5B95 0%, #9B8BC2 100%);
+  color: var(--white);
+  padding: 0.3rem 1rem;
+  border-radius: 30px;
+  font-size: 0.9rem;
+  margin-bottom: 1rem;
+}
+
+.technique-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Class Format */
+.class-format {
+  background: linear-gradient(135deg, #6B5B95 0%, #9B8BC2 100%);
+  padding: 100px 20px;
+  color: var(--white);
+}
+
+.class-format .section-title {
+  color: var(--white);
+  text-align: center;
+}
+
+.class-format .section-title::after {
+  background: var(--white);
+}
+
+.format-container {
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.format-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  margin-top: 3rem;
+}
+
+.format-item {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  padding: 2rem;
+  border-radius: 20px;
+  transition: all 0.3s ease;
+}
+
+.format-item:hover {
+  transform: translateY(-10px);
+  background: rgba(255, 255, 255, 0.2);
+}
+
+.format-number {
+  font-size: 3rem;
+  font-weight: 700;
+  opacity: 0.5;
+  line-height: 1;
+  margin-bottom: 1rem;
+  display: block;
+}
+
+.format-item h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.format-item p {
+  opacity: 0.9;
+  line-height: 1.6;
+}
+
+/* Meditation CTA */
+.meditation-cta {
+  background: linear-gradient(135deg, #483D5E 0%, #6B5B95 100%);
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.meditation-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.meditation-cta h2 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.meditation-cta p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+.meditation-cta .btn-primary {
+  background: var(--white);
+  color: #6B5B95;
+  font-size: 1.2rem;
+  padding: 1.2rem 3rem;
+}
+
+.meditation-cta .btn-primary:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
+}
+
+/* Animations */
+@keyframes float {
+  0% { transform: translateY(0) rotate(0deg); }
+  50% { transform: translateY(-20px) rotate(180deg); }
+  100% { transform: translateY(0) rotate(360deg); }
+}
+
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .meditation-hero h1 {
+    font-size: 3rem;
+  }
+  
+  .intro-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .meditation-cta h2 {
+    font-size: 2.5rem;
+  }
+  
+  .format-grid {
+    grid-template-columns: repeat(2, 1fr);
+  }
+}
+
+@media (max-width: 768px) {
+  .meditation-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .meditation-hero p {
+    font-size: 1.1rem;
+  }
+  
+  .intro-quote blockquote {
+    font-size: 1.2rem;
+  }
+  
+  .techniques-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .format-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .meditation-cta h2 {
+    font-size: 2rem;
+  }
+  
+  .benefits-grid {
+    grid-template-columns: 1fr;
+  }
+}

@@ -1,0 +1,599 @@
+/* pages/ThetaHealing.css */
+.theta-healing {
+  overflow-x: hidden;
+}
+
+/* Theta Hero Section */
+.theta-hero {
+  min-height: 70vh;
+  background: linear-gradient(135deg, #8E44AD 0%, #9B59B6 50%, #C39BD3 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  overflow: hidden;
+}
+
+.theta-hero-overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: radial-gradient(circle at 20% 50%, rgba(255,255,255,0.1) 0%, transparent 50%),
+              radial-gradient(circle at 80% 50%, rgba(255,255,255,0.1) 0%, transparent 50%);
+  animation: pulseOverlay 4s ease-in-out infinite;
+}
+
+.theta-hero-content {
+  position: relative;
+  z-index: 1;
+  max-width: 800px;
+}
+
+.theta-hero h1 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  margin-bottom: 1.5rem;
+  text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.2);
+  line-height: 1.2;
+}
+
+.theta-hero p {
+  font-size: 1.3rem;
+  color: rgba(255, 255, 255, 0.95);
+  line-height: 1.8;
+}
+
+/* Understanding Section */
+.understanding-section {
+  background: var(--white);
+  padding: 100px 20px;
+}
+
+.understanding-container {
+  max-width: 1400px;
+  margin: 0 auto;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 4rem;
+  align-items: center;
+}
+
+.understanding-content p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+  color: var(--text-light);
+  margin-bottom: 1.5rem;
+}
+
+.theta-quote {
+  position: relative;
+  padding: 2rem;
+  background: linear-gradient(135deg, #f5f0ff 0%, #faf5ff 100%);
+  border-radius: 20px;
+  margin-top: 2rem;
+  font-size: 1.2rem;
+  font-style: italic;
+  color: #8E44AD;
+  text-align: center;
+}
+
+.quote-mark {
+  color: #9B59B6;
+  font-size: 2rem;
+  font-family: serif;
+  opacity: 0.5;
+  margin: 0 0.5rem;
+}
+
+.brain-wave-container {
+  position: relative;
+  width: 300px;
+  height: 300px;
+  margin: 0 auto;
+}
+
+.brain-outline {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.brain-left,
+.brain-right {
+  position: absolute;
+  width: 140px;
+  height: 200px;
+  background: rgba(142, 68, 173, 0.1);
+  border: 3px solid #8E44AD;
+  border-radius: 50% 50% 40% 40%;
+}
+
+.brain-left {
+  left: 10px;
+  top: 50px;
+  transform: rotate(-10deg);
+}
+
+.brain-right {
+  right: 10px;
+  top: 50px;
+  transform: rotate(10deg);
+}
+
+.wave-group {
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 200px;
+  height: 200px;
+}
+
+.wave {
+  position: absolute;
+  border: 2px solid #9B59B6;
+  border-radius: 50%;
+  animation: wave 3s ease-out infinite;
+  opacity: 0;
+}
+
+.theta-wave-1 {
+  width: 100%;
+  height: 100%;
+  animation-delay: 0s;
+}
+
+.theta-wave-2 {
+  width: 80%;
+  height: 80%;
+  top: 10%;
+  left: 10%;
+  animation-delay: 0.5s;
+}
+
+.theta-wave-3 {
+  width: 60%;
+  height: 60%;
+  top: 20%;
+  left: 20%;
+  animation-delay: 1s;
+}
+
+/* Benefits Section */
+.theta-benefits-section {
+  background: linear-gradient(135deg, #f5f0ff 0%, #faf5ff 100%);
+  padding: 100px 20px;
+}
+
+.theta-benefits-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 3rem auto 0;
+}
+
+.theta-benefit-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 10px 30px rgba(142, 68, 173, 0.1);
+}
+
+.theta-benefit-card::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 4px;
+  background: linear-gradient(135deg, #8E44AD 0%, #9B59B6 100%);
+  transform: scaleX(0);
+  transition: transform 0.3s ease;
+}
+
+.theta-benefit-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(142, 68, 173, 0.2);
+}
+
+.theta-benefit-card:hover::before {
+  transform: scaleX(1);
+}
+
+.theta-benefit-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+  animation: float 3s ease-in-out infinite;
+}
+
+.theta-benefit-card h3 {
+  font-size: 1.3rem;
+  color: #8E44AD;
+  margin-bottom: 1rem;
+}
+
+.theta-benefit-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Process Section */
+.theta-process-section {
+  background: linear-gradient(135deg, #8E44AD 0%, #9B59B6 100%);
+  padding: 100px 20px;
+}
+
+.section-header.light .section-title,
+.section-header.light .section-subtitle {
+  color: var(--white);
+}
+
+.section-header.light .section-title::after {
+  background: var(--white);
+}
+
+.theta-process-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 3rem auto 0;
+}
+
+.theta-process-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  position: relative;
+  transition: all 0.3s ease;
+  border-bottom: 4px solid;
+}
+
+.theta-process-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.theta-process-number {
+  width: 60px;
+  height: 60px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.5rem;
+  color: var(--white);
+  font-weight: 700;
+  font-size: 1.5rem;
+}
+
+.theta-process-card h3 {
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+
+.theta-process-card p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Techniques Section */
+.techniques-section {
+  background: var(--white);
+  padding: 100px 20px;
+}
+
+.techniques-container {
+  max-width: 800px;
+  margin: 3rem auto 0;
+}
+
+.technique-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 1.5rem;
+  margin-bottom: 1.5rem;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f5f0ff 0%, #faf5ff 100%);
+  border-radius: 15px;
+  transition: all 0.3s ease;
+}
+
+.technique-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(142, 68, 173, 0.1);
+}
+
+.technique-dot {
+  width: 12px;
+  height: 12px;
+  background: #8E44AD;
+  border-radius: 50%;
+  margin-top: 8px;
+  position: relative;
+}
+
+.technique-dot::before {
+  content: '';
+  position: absolute;
+  width: 24px;
+  height: 24px;
+  border: 2px solid #9B59B6;
+  border-radius: 50%;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.technique-content h3 {
+  font-size: 1.3rem;
+  color: #8E44AD;
+  margin-bottom: 0.5rem;
+}
+
+.technique-content p {
+  color: var(--text-light);
+  line-height: 1.6;
+}
+
+/* Session Section */
+.theta-session-section {
+  background: linear-gradient(135deg, #f5f0ff 0%, #faf5ff 100%);
+  padding: 100px 20px;
+}
+
+.session-card {
+  max-width: 800px;
+  margin: 0 auto;
+  background: var(--white);
+  padding: 3rem;
+  border-radius: 30px;
+  box-shadow: 0 30px 60px rgba(142, 68, 173, 0.2);
+}
+
+.session-card h2 {
+  font-size: 2.5rem;
+  color: #8E44AD;
+  text-align: center;
+  margin-bottom: 2rem;
+}
+
+.session-details-grid {
+  display: grid;
+  grid-template-columns: repeat(2, 1fr);
+  gap: 2rem;
+  margin-bottom: 2rem;
+}
+
+.session-detail-item {
+  text-align: center;
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #f5f0ff 0%, #faf5ff 100%);
+  border-radius: 15px;
+}
+
+.detail-label {
+  display: block;
+  font-size: 0.9rem;
+  color: #8E44AD;
+  margin-bottom: 0.5rem;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+}
+
+.detail-value {
+  font-size: 1.5rem;
+  font-weight: 600;
+  color: var(--text);
+}
+
+.detail-value.price {
+  color: #8E44AD;
+  font-size: 2rem;
+}
+
+.session-btn {
+  width: 100%;
+  max-width: 300px;
+  margin: 2rem auto 0;
+  display: block;
+}
+
+/* Testimonials */
+.theta-testimonials {
+  background: linear-gradient(135deg, #8E44AD 0%, #9B59B6 100%);
+  padding: 100px 20px;
+}
+
+.testimonials-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 3rem auto 0;
+}
+
+.testimonial-card {
+  background: var(--white);
+  padding: 2rem;
+  border-radius: 20px;
+  position: relative;
+  transition: all 0.3s ease;
+}
+
+.testimonial-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.2);
+}
+
+.testimonial-quote {
+  font-size: 4rem;
+  color: #8E44AD;
+  opacity: 0.2;
+  position: absolute;
+  top: -10px;
+  left: 10px;
+}
+
+.testimonial-card p {
+  font-size: 1rem;
+  line-height: 1.8;
+  color: var(--text);
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
+}
+
+.testimonial-author {
+  text-align: right;
+}
+
+.testimonial-author strong {
+  display: block;
+  color: #8E44AD;
+  margin-bottom: 0.2rem;
+}
+
+.testimonial-author span {
+  font-size: 0.9rem;
+  color: var(--text-light);
+}
+
+/* Theta CTA */
+.theta-cta {
+  background: linear-gradient(135deg, #6C3483 0%, #8E44AD 100%);
+  text-align: center;
+  padding: 100px 20px;
+}
+
+.theta-cta-content {
+  max-width: 600px;
+  margin: 0 auto;
+}
+
+.theta-cta h2 {
+  font-size: 3rem;
+  font-family: 'Playfair Display', serif;
+  color: var(--white);
+  margin-bottom: 1rem;
+}
+
+.theta-cta p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  margin-bottom: 2rem;
+}
+
+.theta-cta .btn-primary {
+  background: var(--white);
+  color: #8E44AD;
+}
+
+/* Animations */
+@keyframes wave {
+  0% {
+    transform: scale(0.5);
+    opacity: 1;
+  }
+  100% {
+    transform: scale(1.5);
+    opacity: 0;
+  }
+}
+
+@keyframes pulseOverlay {
+  0%, 100% { opacity: 0.3; }
+  50% { opacity: 0.6; }
+}
+
+@keyframes glowText {
+  0%, 100% { text-shadow: 2px 2px 4px rgba(0,0,0,0.2); }
+  50% { text-shadow: 0 0 20px rgba(255,255,255,0.5); }
+}
+
+@keyframes float {
+  0%, 100% { transform: translateY(0); }
+  50% { transform: translateY(-10px); }
+}
+
+@keyframes pulse {
+  0% { transform: translate(-50%, -50%) scale(1); opacity: 1; }
+  100% { transform: translate(-50%, -50%) scale(1.5); opacity: 0; }
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .theta-hero h1 {
+    font-size: 3rem;
+  }
+  
+  .understanding-container {
+    grid-template-columns: 1fr;
+    gap: 3rem;
+  }
+  
+  .session-details-grid {
+    grid-template-columns: 1fr;
+    gap: 1rem;
+  }
+  
+  .theta-cta h2 {
+    font-size: 2.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .theta-hero h1 {
+    font-size: 2.5rem;
+  }
+  
+  .theta-hero p {
+    font-size: 1.1rem;
+  }
+  
+  .theta-benefits-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .theta-process-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .technique-item {
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+  }
+  
+  .technique-dot {
+    margin-bottom: 1rem;
+  }
+  
+  .session-card {
+    padding: 2rem;
+  }
+  
+  .session-card h2 {
+    font-size: 2rem;
+  }
+  
+  .testimonials-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .theta-cta h2 {
+    font-size: 2rem;
+  }
+}
