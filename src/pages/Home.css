@@ -1,8 +1,10 @@
+/* Home.css - Updated Hero Carousel Styles */
+
 .home {
   overflow-x: hidden;
 }
 
-/* Hero Section with Slider */
+/* Hero Section with Carousel */
 .hero-section {
   min-height: 100vh;
   display: flex;
@@ -11,24 +13,52 @@
   overflow: hidden;
 }
 
-.hero-slider {
+/* Carousel Container */
+.hero-carousel-container {
   position: absolute;
   top: 0;
   left: 0;
   width: 100%;
   height: 100%;
-  display: flex;
-  animation: sliderAnimation 20s infinite;
+  overflow: hidden;
 }
 
-.hero-slide {
-  flex: 0 0 100%;
+/* Carousel Grid */
+.hero-carousel {
+  display: grid;
   width: 100%;
   height: 100%;
-  background-size: cover;
-  background-position: center;
-  background-repeat: no-repeat;
+  transition: transform 0.5s ease-in-out;
+}
+
+/* Desktop: 3 columns */
+.hero-carousel.desktop {
+  grid-template-columns: repeat(3, 1fr);
+  gap: 0;
+}
+
+/* Mobile: 1 column */
+.hero-carousel.mobile {
+  grid-template-columns: 1fr;
+}
+
+/* Carousel Slides */
+.hero-carousel-slide {
   position: relative;
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+}
+
+.hero-carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.3s ease;
+}
+
+.hero-carousel-slide:hover .hero-carousel-image {
+  transform: scale(1.05);
 }
 
 .hero-overlay {
@@ -40,24 +70,75 @@
   background: linear-gradient(135deg, rgba(0,0,0,0.6) 0%, rgba(0,0,0,0.4) 100%);
 }
 
-@keyframes sliderAnimation {
-  0%, 20% {
-    transform: translateX(0);
-  }
-  25%, 45% {
-    transform: translateX(-100%);
-  }
-  50%, 70% {
-    transform: translateX(-200%);
-  }
-  75%, 95% {
-    transform: translateX(-300%);
-  }
-  100% {
-    transform: translateX(-400%);
-  }
+/* Navigation Arrows */
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+  background: rgba(255, 255, 255, 0.3);
+  backdrop-filter: blur(5px);
+  border: none;
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  font-size: 2rem;
+  font-weight: bold;
+  color: white;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  z-index: 10;
+  display: flex;
+  align-items: center;
+  justify-content: center;
 }
 
+.carousel-arrow:hover {
+  background: rgba(255, 255, 255, 0.5);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow.prev {
+  left: 20px;
+}
+
+.carousel-arrow.next {
+  right: 20px;
+}
+
+/* Dots Navigation */
+.carousel-dots {
+  position: absolute;
+  bottom: 30px;
+  left: 50%;
+  transform: translateX(-50%);
+  display: flex;
+  gap: 12px;
+  z-index: 10;
+}
+
+.carousel-dot {
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: rgba(255, 255, 255, 0.5);
+  border: none;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  padding: 0;
+}
+
+.carousel-dot:hover {
+  background: rgba(255, 255, 255, 0.8);
+  transform: scale(1.2);
+}
+
+.carousel-dot.active {
+  width: 30px;
+  border-radius: 10px;
+  background: white;
+}
+
+/* Hero Content */
 .hero-content {
   position: relative;
   z-index: 2;
@@ -76,7 +157,7 @@
 .hero-title {
   font-size: 3rem;
   font-family: 'Playfair Display', serif;
-  line-height: 1;
+  line-height: 1.2;
   margin-bottom: 1.5rem;
   color: white;
 }
@@ -148,6 +229,103 @@
   padding: 1.2rem 2.5rem;
   font-size: 1.1rem;
 }
+
+/* Responsive Styles */
+@media (max-width: 1024px) {
+  .hero-title {
+    font-size: 2.5rem;
+  }
+  
+  .carousel-arrow {
+    width: 40px;
+    height: 40px;
+    font-size: 1.5rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .hero-title {
+    font-size: 2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .hero-buttons {
+    justify-content: flex-start;
+  }
+  
+  .carousel-arrow {
+    width: 35px;
+    height: 35px;
+    font-size: 1.2rem;
+  }
+  
+  .carousel-arrow.prev {
+    left: 10px;
+  }
+  
+  .carousel-arrow.next {
+    right: 10px;
+  }
+  
+  .carousel-dots {
+    bottom: 20px;
+    gap: 8px;
+  }
+  
+  .carousel-dot {
+    width: 8px;
+    height: 8px;
+  }
+  
+  .carousel-dot.active {
+    width: 24px;
+  }
+}
+
+@media (max-width: 480px) {
+  .hero-title {
+    font-size: 1.6rem;
+  }
+  
+  .hero-description {
+    font-size: 0.9rem;
+  }
+  
+  .hero-subdescription {
+    font-size: 0.85rem;
+  }
+  
+  .hero-buttons {
+    gap: 0.8rem;
+  }
+  
+  .btn {
+    padding: 0.6rem 1.2rem;
+    font-size: 0.85rem;
+  }
+  
+  .carousel-arrow {
+    width: 30px;
+    height: 30px;
+    font-size: 1rem;
+  }
+}
+
+/* Animation */
+@keyframes fadeInUp {
+  from {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
 
 /* Offerings Section */
 .offerings-section {

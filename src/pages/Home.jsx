@@ -1,6 +1,7 @@
-// pages/Home.jsx
+// pages/Home.jsx - Updated Hero Section
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState, useEffect } from 'react';
 import './Home.css';
 
 const Home = () => {
@@ -55,6 +56,76 @@ I'm interested in your services. Please share more details.`;
     window.open(whatsappURL, '_blank');
   };
 
+  // Hero images from local public folder
+  const heroImages = [
+    '/images/corosal/corosal (1).jpeg',
+    '/images/corosal/corosal (2).jpeg',
+    '/images/corosal/corosal (3).jpeg',
+    '/images/corosal/corosal (4).jpeg',
+    '/images/corosal/corosal (5).jpeg',
+    '/images/corosal/corosal (6).jpeg',
+    '/images/corosal/corosal (7).jpeg',
+    '/images/corosal/corosal (8).jpeg',
+    '/images/corosal/corosal (9).jpeg',
+  ];
+
+  // Carousel state
+  const [currentIndex, setCurrentIndex] = useState(0);
+  const [isMobile, setIsMobile] = useState(window.innerWidth < 768);
+  const [isAutoPlaying, setIsAutoPlaying] = useState(true);
+
+  // Check screen size for responsive display
+  useEffect(() => {
+    const handleResize = () => {
+      setIsMobile(window.innerWidth < 768);
+    };
+    window.addEventListener('resize', handleResize);
+    return () => window.removeEventListener('resize', handleResize);
+  }, []);
+
+  // Auto-slide functionality
+  useEffect(() => {
+    if (!isAutoPlaying) return;
+    
+    const interval = setInterval(() => {
+      setCurrentIndex((prevIndex) => {
+        const imagesPerView = isMobile ? 1 : 3;
+        const totalSlides = Math.ceil(heroImages.length / imagesPerView);
+        return (prevIndex + 1) % totalSlides;
+      });
+    }, 4000);
+
+    return () => clearInterval(interval);
+  }, [isAutoPlaying, isMobile, heroImages.length]);
+
+  // Get current visible images based on index
+  const getVisibleImages = () => {
+    const imagesPerView = isMobile ? 1 : 3;
+    const startIndex = currentIndex * imagesPerView;
+    return heroImages.slice(startIndex, startIndex + imagesPerView);
+  };
+
+  const totalSlides = Math.ceil(heroImages.length / (isMobile ? 1 : 3));
+
+  const goToSlide = (index) => {
+    setCurrentIndex(index);
+    setIsAutoPlaying(false);
+    // Resume auto-play after 10 seconds of inactivity
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  const nextSlide = () => {
+    setCurrentIndex((prev) => (prev + 1) % totalSlides);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
+  const prevSlide = () => {
+    setCurrentIndex((prev) => (prev - 1 + totalSlides) % totalSlides);
+    setIsAutoPlaying(false);
+    setTimeout(() => setIsAutoPlaying(true), 10000);
+  };
+
   const offerings = [
   {
     icon: '🧘',
@@ -62,7 +133,7 @@ I'm interested in your services. Please share more details.`;
     description: 'Daily guided yoga classes to improve strength, flexibility, and overall wellbeing.',
     link: '/offline-yoga',
     bookingType: 'offline',
-    image: '/images/offring/offline.jpg',  // Yoga/meditation image
+    image: '/images/offring/offline.jpeg',
    
   },
   {
@@ -71,7 +142,7 @@ I'm interested in your services. Please share more details.`;
     description: 'Practice yoga from the comfort of your home with structured and guided sessions.',
     link: '/online-yoga',
     bookingType: 'online',
-    image: '/images/offring/online.png',   // Workspace/laptop image
+    image: '/images/offring/online.png',
     
   },
   {
@@ -80,7 +151,7 @@ I'm interested in your services. Please share more details.`;
     description: 'A deeper journey for those who want to learn yoga in depth and share it with others.',
     link: '/teacher-training',
     bookingType: 'teacher',
-    image: '/images/offring/teacher.jpg',  // Group/learning image
+    image: '/images/offring/teacher.jpeg',
    
   },
   {
@@ -89,7 +160,7 @@ I'm interested in your services. Please share more details.`;
     description: 'Learn techniques to calm the mind, develop awareness, and experience inner peace.',
     link: '/meditation',
     bookingType: 'meditation',
-    image: '/images/offring/meditation.jpg',   // Nature/peaceful image
+    image: '/images/offring/meditation.jpg',
    
   },
   {
@@ -98,7 +169,7 @@ I'm interested in your services. Please share more details.`;
     description: 'Transform subconscious beliefs and emotional patterns through deep energy healing.',
     link: '/theta-healing',
     bookingType: 'theta',
-    image: '/images/offring/theta.jpg',  // Healing/energy image
+    image: '/images/offring/theta.jpeg',
     
   },
   {
@@ -107,7 +178,7 @@ I'm interested in your services. Please share more details.`;
     description: 'Energy healing technique that helps balance and cleanse the body’s energy system.',
     link: '/pranic-healing',
     bookingType: 'pranic',
-    image: '/images/offring/pranic.jpg',   // Nature/wellness image
+    image: '/images/offring/pranic.jpg',
    
   }
 ];
@@ -133,15 +204,6 @@ I'm interested in your services. Please share more details.`;
     }
   ];
 
-  // Hero section full images
-  const heroImages = [
-    'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1599447421416-3414500d18a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-    'https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
-  ];
-
   return (
     <motion.div
       initial={{ opacity: 0 }}
@@ -149,16 +211,41 @@ I'm interested in your services. Please share more details.`;
       exit={{ opacity: 0 }}
       className="home"
     >
-      {/* Hero Section with Full Images */}
+      {/* Hero Section with Responsive Carousel */}
       <section className="hero-section">
-        <div className="hero-slider">
-          {heroImages.map((img, index) => (
-            <div key={index} className="hero-slide" style={{ backgroundImage: `url(${img})` }}>
-              <div className="hero-overlay"></div>
-            </div>
-          ))}
+        {/* Carousel Container */}
+        <div className="hero-carousel-container">
+          <div className={`hero-carousel ${isMobile ? 'mobile' : 'desktop'}`}>
+            {getVisibleImages().map((img, index) => (
+              <div key={index} className="hero-carousel-slide">
+                <img src={img} alt={`Yoga ${currentIndex * 3 + index + 1}`} className="hero-carousel-image" />
+                <div className="hero-overlay"></div>
+              </div>
+            ))}
+          </div>
+
+          {/* Navigation Arrows */}
+          <button className="carousel-arrow prev" onClick={prevSlide} aria-label="Previous">
+            ‹
+          </button>
+          <button className="carousel-arrow next" onClick={nextSlide} aria-label="Next">
+            ›
+          </button>
+
+          {/* Dots Navigation */}
+          <div className="carousel-dots">
+            {Array.from({ length: totalSlides }).map((_, idx) => (
+              <button
+                key={idx}
+                className={`carousel-dot ${currentIndex === idx ? 'active' : ''}`}
+                onClick={() => goToSlide(idx)}
+                aria-label={`Go to slide ${idx + 1}`}
+              />
+            ))}
+          </div>
         </div>
         
+        {/* Hero Content */}
         <div className="hero-content">
           <motion.div
             initial={{ opacity: 0, y: 50 }}
@@ -215,7 +302,7 @@ I'm interested in your services. Please share more details.`;
             >
               <div className="offering-image-wrapper">
                 <img src={offering.image} alt={offering.title} className="offering-bg-image" />
-                <div className="offering-overlay" style={{ background: offering.bgColor }}></div>
+                <div className="offering-overlay"></div>
                 <div className="offering-icon">{offering.icon}</div>
               </div>
               <div className="offering-content">
@@ -232,67 +319,66 @@ I'm interested in your services. Please share more details.`;
         </div>
       </section>
 
-      {/* Why Choose Us Section */}
       {/* Why Choose Khushyog Section */}
-<section className="why-choose-section">
-  <div className="why-choose-grid">
-    {/* Left Content - Features List */}
-    <motion.div
-      initial={{ opacity: 0, x: -50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="why-choose-content"
-    >
-      <h2 className="section-title">Why Choose Khushyog</h2>
-      
-      <ul className="features-list">
-        <li>
-          <span className="feature-check">✓</span>
-          <span className="feature-text">Beginner-friendly environment</span>
-        </li>
-        <li>
-          <span className="feature-check">✓</span>
-          <span className="feature-text">Holistic wellness approach</span>
-        </li>
-        <li>
-          <span className="feature-check">✓</span>
-          <span className="feature-text">Small batch personal attention</span>
-        </li>
-        <li>
-          <span className="feature-check">✓</span>
-          <span className="feature-text">Combination of yoga, meditation and energy healing</span>
-        </li>
-        <li>
-          <span className="feature-check">✓</span>
-          <span className="feature-text">Guided by experienced practitioner</span>
-        </li>
-      </ul>
-      
-      <p className="why-choose-quote">
-        Khushyog is not just about physical exercise — it is about creating a balanced and conscious life.
-      </p>
-    </motion.div>
+      <section className="why-choose-section">
+        <div className="why-choose-grid">
+          {/* Left Content - Features List */}
+          <motion.div
+            initial={{ opacity: 0, x: -50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="why-choose-content"
+          >
+            <h2 className="section-title">Why Choose Khushyog</h2>
+            
+            <ul className="features-list">
+              <li>
+                <span className="feature-check">✓</span>
+                <span className="feature-text">Beginner-friendly environment</span>
+              </li>
+              <li>
+                <span className="feature-check">✓</span>
+                <span className="feature-text">Holistic wellness approach</span>
+              </li>
+              <li>
+                <span className="feature-check">✓</span>
+                <span className="feature-text">Small batch personal attention</span>
+              </li>
+              <li>
+                <span className="feature-check">✓</span>
+                <span className="feature-text">Combination of yoga, meditation and energy healing</span>
+              </li>
+              <li>
+                <span className="feature-check">✓</span>
+                <span className="feature-text">Guided by experienced practitioner</span>
+              </li>
+            </ul>
+            
+            <p className="why-choose-quote">
+              Khushyog is not just about physical exercise — it is about creating a balanced and conscious life.
+            </p>
+          </motion.div>
 
-    {/* Right Visual - Image */}
-    <motion.div
-      initial={{ opacity: 0, x: 50 }}
-      whileInView={{ opacity: 1, x: 0 }}
-      viewport={{ once: true }}
-      transition={{ duration: 0.6 }}
-      className="why-choose-visual"
-    >
-      <img 
-        src="/images/gallery/yoga (8).jpeg" 
-        alt="Yoga Practice at Khushyog"
-        className="why-choose-image"
-        onError={(e) => {
-          e.target.src = 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
-        }}
-      />
-    </motion.div>
-  </div>
-</section>
+          {/* Right Visual - Image */}
+          <motion.div
+            initial={{ opacity: 0, x: 50 }}
+            whileInView={{ opacity: 1, x: 0 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.6 }}
+            className="why-choose-visual"
+          >
+            <img 
+              src="/images/gallery/yoga (8).jpeg" 
+              alt="Yoga Practice at Khushyog"
+              className="why-choose-image"
+              onError={(e) => {
+                e.target.src = 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+              }}
+            />
+          </motion.div>
+        </div>
+      </section>
 
       {/* Testimonials Section */}
       <section className="testimonials-section">
