@@ -56,66 +56,90 @@ I'm interested in your services. Please share more details.`;
   };
 
   const offerings = [
-    {
-      icon: '🧘',
-      title: 'Offline Yoga Classes',
-      description: 'Daily guided yoga classes to improve strength, flexibility, and overall wellbeing.',
-      link: '/offline-yoga',
-      bookingType: 'offline'
-    },
-    {
-      icon: '💻',
-      title: 'Online Yoga Classes',
-      description: 'Practice yoga from the comfort of your home with structured and guided sessions.',
-      link: '/online-yoga',
-      bookingType: 'online'
-    },
-    {
-      icon: '🎓',
-      title: 'Teacher Training Course',
-      description: 'A deeper journey for those who want to learn yoga in depth and share it with others.',
-      link: '/teacher-training',
-      bookingType: 'teacher'
-    },
-    {
-      icon: '🧘‍♀️',
-      title: 'Meditation Classes',
-      description: 'Learn techniques to calm the mind, develop awareness, and experience inner peace.',
-      link: '/meditation',
-      bookingType: 'meditation'
-    },
-    {
-      icon: '✨',
-      title: 'Theta Healing Sessions',
-      description: 'Transform subconscious beliefs and emotional patterns through deep energy healing.',
-      link: '/theta-healing',
-      bookingType: 'theta'
-    },
-    {
-      icon: '🌿',
-      title: 'Pranic Healing Sessions',
-      description: 'Energy healing technique that helps balance and cleanse the body’s energy system.',
-      link: '/pranic-healing',
-      bookingType: 'pranic'
-    }
-  ];
+  {
+    icon: '🧘',
+    title: 'Offline Yoga Classes',
+    description: 'Daily guided yoga classes to improve strength, flexibility, and overall wellbeing.',
+    link: '/offline-yoga',
+    bookingType: 'offline',
+    image: '/images/offring/offline.jpg',  // Yoga/meditation image
+   
+  },
+  {
+    icon: '💻',
+    title: 'Online Yoga Classes',
+    description: 'Practice yoga from the comfort of your home with structured and guided sessions.',
+    link: '/online-yoga',
+    bookingType: 'online',
+    image: '/images/offring/online.png',   // Workspace/laptop image
+    
+  },
+  {
+    icon: '🎓',
+    title: 'Teacher Training Course',
+    description: 'A deeper journey for those who want to learn yoga in depth and share it with others.',
+    link: '/teacher-training',
+    bookingType: 'teacher',
+    image: '/images/offring/teacher.jpg',  // Group/learning image
+   
+  },
+  {
+    icon: '🧘‍♀️',
+    title: 'Meditation Classes',
+    description: 'Learn techniques to calm the mind, develop awareness, and experience inner peace.',
+    link: '/meditation',
+    bookingType: 'meditation',
+    image: '/images/offring/meditation.jpg',   // Nature/peaceful image
+   
+  },
+  {
+    icon: '✨',
+    title: 'Theta Healing Sessions',
+    description: 'Transform subconscious beliefs and emotional patterns through deep energy healing.',
+    link: '/theta-healing',
+    bookingType: 'theta',
+    image: '/images/offring/theta.jpg',  // Healing/energy image
+    
+  },
+  {
+    icon: '🌿',
+    title: 'Pranic Healing Sessions',
+    description: 'Energy healing technique that helps balance and cleanse the body’s energy system.',
+    link: '/pranic-healing',
+    bookingType: 'pranic',
+    image: '/images/offring/pranic.jpg',   // Nature/wellness image
+   
+  }
+];
 
   const testimonials = [
     {
       name: 'Priya Sharma',
       text: 'Khushyog has helped me feel more peaceful and physically stronger. The environment is very positive.',
-      rating: 5
+      rating: 5,
+      avatar: 'https://randomuser.me/api/portraits/women/1.jpg'
     },
     {
       name: 'Rahul Verma',
       text: 'The healing session helped me understand patterns I was struggling with for years.',
-      rating: 5
+      rating: 5,
+      avatar: 'https://randomuser.me/api/portraits/men/2.jpg'
     },
     {
       name: 'Anita Desai',
       text: 'The yoga classes are transformative. I\'ve never felt better in my life!',
-      rating: 5
+      rating: 5,
+      avatar: 'https://randomuser.me/api/portraits/women/3.jpg'
     }
+  ];
+
+  // Hero section full images
+  const heroImages = [
+    'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1506126613408-eca07ce68773?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1599447421416-3414500d18a5?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1545205597-3d9d02c29597?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
+    'https://images.unsplash.com/photo-1508672019048-805c876b67e2?ixlib=rb-4.0.3&auto=format&fit=crop&w=1200&q=80',
   ];
 
   return (
@@ -125,12 +149,14 @@ I'm interested in your services. Please share more details.`;
       exit={{ opacity: 0 }}
       className="home"
     >
-      {/* Hero Section */}
+      {/* Hero Section with Full Images */}
       <section className="hero-section">
-        <div className="hero-background">
-          <div className="floating-shape shape-1"></div>
-          <div className="floating-shape shape-2"></div>
-          <div className="floating-shape shape-3"></div>
+        <div className="hero-slider">
+          {heroImages.map((img, index) => (
+            <div key={index} className="hero-slide" style={{ backgroundImage: `url(${img})` }}>
+              <div className="hero-overlay"></div>
+            </div>
+          ))}
         </div>
         
         <div className="hero-content">
@@ -155,21 +181,23 @@ I'm interested in your services. Please share more details.`;
               and teacher training programs designed to support your physical, emotional, 
               and spiritual wellbeing.
             </p>
-        
-          </motion.div>
-          
-          <motion.div
-            initial={{ opacity: 0, scale: 0.8 }}
-            animate={{ opacity: 1, scale: 1 }}
-            transition={{ duration: 0.8, delay: 0.3 }}
-            className="hero-visual"
-          >
-            <img src="/images/logo.jpeg" alt="Khushyog Logo" className="hero-logo" />
+            
+            <div className="hero-buttons">
+              <button 
+                onClick={() => handleWhatsAppRedirect('trial')}
+                className="btn btn-primary btn-large"
+              >
+                Start Your Journey
+              </button>
+              <Link to="/contact" className="btn btn-outline btn-large">
+                Learn More
+              </Link>
+            </div>
           </motion.div>
         </div>
       </section>
 
-      {/* Offerings Section */}
+      {/* Offerings Section with Images */}
       <section className="offerings-section">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -195,14 +223,19 @@ I'm interested in your services. Please share more details.`;
               transition={{ duration: 0.6, delay: index * 0.1 }}
               className="offering-card"
             >
-              <div className="offering-icon">{offering.icon}</div>
-              <h3>{offering.title}</h3>
-              <p>{offering.description}</p>
-              <div className="card-actions">
-                <Link to={offering.link} className="card-link">
-                  Learn More →
-                </Link>
-               
+              <div className="offering-image-wrapper">
+                <img src={offering.image} alt={offering.title} className="offering-bg-image" />
+                <div className="offering-overlay" style={{ background: offering.bgColor }}></div>
+                <div className="offering-icon">{offering.icon}</div>
+              </div>
+              <div className="offering-content">
+                <h3>{offering.title}</h3>
+                <p>{offering.description}</p>
+                <div className="card-actions">
+                  <Link to={offering.link} className="card-link">
+                    Learn More →
+                  </Link>
+                </div>
               </div>
             </motion.div>
           ))}
@@ -254,6 +287,11 @@ I'm interested in your services. Please share more details.`;
             transition={{ duration: 0.6 }}
             className="why-choose-visual"
           >
+            <img 
+              src="/images/gallery/yoga (8).jpeg" 
+              alt="Yoga Practice"
+              className="why-choose-image"
+            />
             <div className="experience-badge">
               <span className="years">5+</span>
               <span className="text">Years of Experience</span>
@@ -289,7 +327,7 @@ I'm interested in your services. Please share more details.`;
               </div>
               <p className="testimonial-text">"{testimonial.text}"</p>
               <div className="testimonial-author">
-                <div className="author-avatar">{testimonial.name[0]}</div>
+                <img src={testimonial.avatar} alt={testimonial.name} className="author-avatar-img" />
                 <span className="author-name">{testimonial.name}</span>
               </div>
             </motion.div>
