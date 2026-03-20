@@ -233,62 +233,66 @@ I'm interested in your services. Please share more details.`;
       </section>
 
       {/* Why Choose Us Section */}
-      <section className="why-choose-section">
-        <div className="why-choose-grid">
-          <motion.div
-            initial={{ opacity: 0, x: -50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="why-choose-content"
-          >
-            <h2 className="section-title">Why Choose Khushyog</h2>
-            <ul className="features-list">
-              <li>
-                <span className="feature-check">✓</span>
-                Beginner-friendly environment
-              </li>
-              <li>
-                <span className="feature-check">✓</span>
-                Holistic wellness approach
-              </li>
-              <li>
-                <span className="feature-check">✓</span>
-                Small batch personal attention
-              </li>
-              <li>
-                <span className="feature-check">✓</span>
-                Combination of yoga, meditation and energy healing
-              </li>
-              <li>
-                <span className="feature-check">✓</span>
-                Guided by experienced practitioner
-              </li>
-            </ul>
-            <p className="why-choose-quote">
-              Khushyog is not just about physical exercise — it is about creating a balanced and conscious life.
-            </p>
-          </motion.div>
+      {/* Why Choose Khushyog Section */}
+<section className="why-choose-section">
+  <div className="why-choose-grid">
+    {/* Left Content - Features List */}
+    <motion.div
+      initial={{ opacity: 0, x: -50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="why-choose-content"
+    >
+      <h2 className="section-title">Why Choose Khushyog</h2>
+      
+      <ul className="features-list">
+        <li>
+          <span className="feature-check">✓</span>
+          <span className="feature-text">Beginner-friendly environment</span>
+        </li>
+        <li>
+          <span className="feature-check">✓</span>
+          <span className="feature-text">Holistic wellness approach</span>
+        </li>
+        <li>
+          <span className="feature-check">✓</span>
+          <span className="feature-text">Small batch personal attention</span>
+        </li>
+        <li>
+          <span className="feature-check">✓</span>
+          <span className="feature-text">Combination of yoga, meditation and energy healing</span>
+        </li>
+        <li>
+          <span className="feature-check">✓</span>
+          <span className="feature-text">Guided by experienced practitioner</span>
+        </li>
+      </ul>
+      
+      <p className="why-choose-quote">
+        Khushyog is not just about physical exercise — it is about creating a balanced and conscious life.
+      </p>
+    </motion.div>
 
-          <motion.div
-            initial={{ opacity: 0, x: 50 }}
-            whileInView={{ opacity: 1, x: 0 }}
-            viewport={{ once: true }}
-            transition={{ duration: 0.6 }}
-            className="why-choose-visual"
-          >
-            <img 
-              src="/images/gallery/yoga (8).jpeg" 
-              alt="Yoga Practice"
-              className="why-choose-image"
-            />
-            <div className="experience-badge">
-              <span className="years">5+</span>
-              <span className="text">Years of Experience</span>
-            </div>
-          </motion.div>
-        </div>
-      </section>
+    {/* Right Visual - Image */}
+    <motion.div
+      initial={{ opacity: 0, x: 50 }}
+      whileInView={{ opacity: 1, x: 0 }}
+      viewport={{ once: true }}
+      transition={{ duration: 0.6 }}
+      className="why-choose-visual"
+    >
+      <img 
+        src="/images/gallery/yoga (8).jpeg" 
+        alt="Yoga Practice at Khushyog"
+        className="why-choose-image"
+        onError={(e) => {
+          e.target.src = 'https://images.unsplash.com/photo-1544367567-0f2fcb009e0b?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80';
+        }}
+      />
+    </motion.div>
+  </div>
+</section>
 
       {/* Testimonials Section */}
       <section className="testimonials-section">
