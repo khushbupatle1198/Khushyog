@@ -101,10 +101,12 @@ Please share more details about the class schedule.`;
             className="founder-image"
           >
             <div className="founder-image-wrapper">
-              <div className="founder-image-placeholder">
-                <img src="/images/founder.jpeg" alt="Khushyali Singh" />
-              </div>
-            </div>
+  <img 
+    src="/images/gallery/yoga (9).jpeg" 
+    alt="Founder" 
+    className="founder-image"
+  />
+</div>
           </motion.div>
 
           <motion.div
