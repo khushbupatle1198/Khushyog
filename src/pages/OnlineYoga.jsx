@@ -1,12 +1,28 @@
 // pages/OnlineYoga.jsx
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import BookingModal from '../components/BookingModal';
 import './OnlineYoga.css';
 
 const OnlineYoga = () => {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const phoneNumber = "918999639059"; // +91 8999639059
+
+  const handleWhatsAppRedirect = (type = 'online', price = '') => {
+    let message = "";
+    
+    if (type === 'trial') {
+      message = `Hello Khushyog! 👋
+I'm interested in booking a Trial Online Yoga Class (₹200). 
+Please share more details about the online class schedule.`;
+    } else {
+      message = `Hello Khushyog! 👋
+I'm interested in your Online Yoga Classes. 
+Please share more details about the schedule and pricing.`;
+    }
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
 
   const features = [
     {
@@ -65,25 +81,29 @@ const OnlineYoga = () => {
       plan: 'Trial Class',
       price: '₹200',
       features: ['Single Session', 'Live Interaction', 'Basic Guidance'],
-      popular: false
+      popular: false,
+      type: 'trial'
     },
     {
       plan: 'Monthly Pass',
       price: '₹2000',
       features: ['Unlimited Classes', 'Recorded Sessions', 'Personal Support'],
-      popular: true
+      popular: true,
+      type: 'monthly'
     },
     {
       plan: '3 Months Pack',
       price: '₹5500',
       features: ['Save ₹500', 'Priority Booking', 'Monthly Check-in'],
-      popular: false
+      popular: false,
+      type: 'quarterly'
     },
     {
       plan: 'Yearly Membership',
       price: '₹18000',
       features: ['Best Value', 'Exclusive Workshops', 'Diet Consultation'],
-      popular: false
+      popular: false,
+      type: 'yearly'
     }
   ];
 
@@ -112,6 +132,18 @@ const OnlineYoga = () => {
           >
             Practice yoga from the comfort of your home with structured and guided sessions
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <button 
+              onClick={() => handleWhatsAppRedirect('trial')}
+              className="btn btn-primary btn-large"
+            >
+              Book Trial Class – ₹200
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -219,7 +251,7 @@ const OnlineYoga = () => {
                 <span className="schedule-language">{slot.language}</span>
               </div>
               <button 
-                onClick={() => setIsBookingModalOpen(true)}
+                onClick={() => handleWhatsAppRedirect('online')}
                 className="btn btn-secondary schedule-btn"
               >
                 Join Class
@@ -262,7 +294,7 @@ const OnlineYoga = () => {
                 ))}
               </ul>
               <button 
-                onClick={() => setIsBookingModalOpen(true)}
+                onClick={() => handleWhatsAppRedirect(plan.type, plan.price)}
                 className="btn btn-primary plan-btn"
               >
                 Get Started
@@ -317,19 +349,13 @@ const OnlineYoga = () => {
           <h2>Start Your Online Yoga Journey Today</h2>
           <p>Join our global community of yoga practitioners</p>
           <button 
-            onClick={() => setIsBookingModalOpen(true)}
+            onClick={() => handleWhatsAppRedirect('trial')}
             className="btn btn-primary btn-large"
           >
             Book Trial Class – ₹200
           </button>
         </motion.div>
       </section>
-
-      {/* Booking Modal */}
-      <BookingModal 
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-      />
     </motion.div>
   );
 };

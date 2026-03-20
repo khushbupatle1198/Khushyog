@@ -4,6 +4,18 @@ import { Link } from 'react-router-dom';
 import './Meditation.css';
 
 const Meditation = () => {
+  const phoneNumber = "918999639059"; // +91 8999639059
+
+  const handleWhatsAppRedirect = () => {
+    const message = `Hello Khushyog! 👋
+I'm interested in your Meditation Classes. 
+Please share more details about the schedule and pricing.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
+
   const benefits = [
     {
       icon: '🧠',
@@ -94,6 +106,18 @@ const Meditation = () => {
           >
             Learn techniques to calm the mind, develop awareness, and experience inner peace
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <button 
+              onClick={handleWhatsAppRedirect}
+              className="btn btn-primary btn-large"
+            >
+              Join a Free Trial Class
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -246,9 +270,12 @@ const Meditation = () => {
         >
           <h2>Begin Your Meditation Journey</h2>
           <p>Join our classes and discover the peace within</p>
-          <Link to="/contact" className="btn btn-primary btn-large">
+          <button 
+            onClick={handleWhatsAppRedirect}
+            className="btn btn-primary btn-large"
+          >
             Join a Free Trial Class
-          </Link>
+          </button>
         </motion.div>
       </section>
     </motion.div>

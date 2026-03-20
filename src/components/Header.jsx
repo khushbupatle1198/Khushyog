@@ -51,7 +51,9 @@ const Header = ({ scrolled }) => {
     { path: '/meditation', label: 'Meditation' },
     { path: '/theta-healing', label: 'Theta Healing' },
     { path: '/pranic-healing', label: 'Pranic Healing' },
+    { path: '/gallery', label: 'Gallery' },
     { path: '/contact', label: 'Contact' },
+    
   ];
 
   // Animation variants for mobile menu

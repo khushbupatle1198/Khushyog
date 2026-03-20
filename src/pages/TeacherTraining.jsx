@@ -4,6 +4,18 @@ import { Link } from 'react-router-dom';
 import './TeacherTraining.css';
 
 const TeacherTraining = () => {
+  const phoneNumber = "918999639059"; // +91 8999639059
+
+  const handleWhatsAppRedirect = () => {
+    const message = `Hello Khushyog! 👋
+I'm interested in the 200-Hour Yoga Teacher Training Course. 
+Please share more details about the curriculum, schedule, and fees.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
+
   const curriculum = [
     {
       module: 'Module 1: Foundation',
@@ -56,6 +68,18 @@ const TeacherTraining = () => {
           >
             A deeper journey for those who want to learn yoga in depth and share it with others
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <button 
+              onClick={handleWhatsAppRedirect}
+              className="btn btn-primary btn-large"
+            >
+              Enroll Now – Limited Seats
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -185,9 +209,12 @@ const TeacherTraining = () => {
             <li>✓ Those seeking personal transformation</li>
             <li>✓ Health & wellness professionals</li>
           </ul>
-          <Link to="/contact" className="btn btn-primary btn-large">
+          <button 
+            onClick={handleWhatsAppRedirect}
+            className="btn btn-primary btn-large"
+          >
             Enroll Now – Limited Seats
-          </Link>
+          </button>
         </motion.div>
       </section>
     </motion.div>

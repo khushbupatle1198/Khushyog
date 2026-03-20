@@ -18,6 +18,7 @@ import Meditation from './pages/Meditation';
 import ThetaHealing from './pages/ThetaHealing';
 import PranicHealing from './pages/PranicHealing';
 import Contact from './pages/Contact';
+import Gallery from './pages/Gallery';
 
 // Main App component
 function App() {
@@ -47,6 +48,7 @@ function App() {
               <Route path="/theta-healing" element={<ThetaHealing />} />
               <Route path="/pranic-healing" element={<PranicHealing />} />
               <Route path="/contact" element={<Contact />} />
+              <Route path="/gallery" element={<Gallery />} />
             </Routes>
           </AnimatePresence>
         </main>

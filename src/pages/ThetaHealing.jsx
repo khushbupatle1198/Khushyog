@@ -4,6 +4,28 @@ import { Link } from 'react-router-dom';
 import './ThetaHealing.css';
 
 const ThetaHealing = () => {
+  const phoneNumber = "918999639059"; // +91 8999639059
+
+  const handleWhatsAppRedirect = () => {
+    const message = `Hello Khushyog! 👋
+I'm interested in Theta Healing Sessions (₹1888 per session). 
+Please share more details about the sessions and availability.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
+
+  const handlePackageRedirect = () => {
+    const message = `Hello Khushyog! 👋
+I'm interested in the Theta Healing Package (3 sessions for ₹5000). 
+Please share more details about the sessions and availability.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
+
   const benefits = [
     {
       icon: '💫',
@@ -126,6 +148,18 @@ const ThetaHealing = () => {
           >
             Transform subconscious beliefs and emotional patterns through deep energy healing
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <button 
+              onClick={handleWhatsAppRedirect}
+              className="btn btn-primary btn-large"
+            >
+              Book Your Session
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -298,9 +332,20 @@ const ThetaHealing = () => {
               <span className="detail-value price">₹5000 (Save ₹664)</span>
             </div>
           </div>
-          <Link to="/contact" className="btn btn-primary btn-large session-btn">
-            Book Your Session
-          </Link>
+          <div className="session-buttons">
+            <button 
+              onClick={handleWhatsAppRedirect}
+              className="btn btn-primary btn-large session-btn"
+            >
+              Book Single Session
+            </button>
+            <button 
+              onClick={handlePackageRedirect}
+              className="btn btn-secondary btn-large session-btn"
+            >
+              Book Package (3 Sessions)
+            </button>
+          </div>
         </motion.div>
       </section>
 
@@ -363,14 +408,16 @@ const ThetaHealing = () => {
         >
           <h2>Ready to Transform Your Life?</h2>
           <p>Experience the power of Theta Healing for yourself</p>
-          <Link to="/contact" className="btn btn-primary btn-large">
+          <button 
+            onClick={handleWhatsAppRedirect}
+            className="btn btn-primary btn-large"
+          >
             Schedule Your Session Today
-          </Link>
+          </button>
         </motion.div>
       </section>
     </motion.div>
   );
 };
 
-// Make sure to export default at the end
 export default ThetaHealing;

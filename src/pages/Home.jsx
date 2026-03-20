@@ -1,49 +1,102 @@
 // pages/Home.jsx
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import BookingModal from '../components/BookingModal';
 import './Home.css';
 
 const Home = () => {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const phoneNumber = "918999639059"; // +91 8999639059
+
+  const handleWhatsAppRedirect = (type, price = '') => {
+    let message = "";
+    
+    switch(type) {
+      case 'trial':
+        message = `Hello Khushyog! 👋
+I'm interested in booking a Trial Yoga Class (₹200). 
+Please share more details about the class schedule.`;
+        break;
+      case 'offline':
+        message = `Hello Khushyog! 👋
+I'm interested in your Offline Yoga Classes. 
+Please share more details about the schedule and pricing.`;
+        break;
+      case 'online':
+        message = `Hello Khushyog! 👋
+I'm interested in your Online Yoga Classes. 
+Please share more details about the schedule and pricing.`;
+        break;
+      case 'teacher':
+        message = `Hello Khushyog! 👋
+I'm interested in the Teacher Training Course. 
+Please share more details about the curriculum and fees.`;
+        break;
+      case 'meditation':
+        message = `Hello Khushyog! 👋
+I'm interested in Meditation Classes. 
+Please share more details about the schedule.`;
+        break;
+      case 'theta':
+        message = `Hello Khushyog! 👋
+I'm interested in Theta Healing Sessions (₹1888). 
+Please share more details about the sessions.`;
+        break;
+      case 'pranic':
+        message = `Hello Khushyog! 👋
+I'm interested in Pranic Healing Sessions (₹1500). 
+Please share more details about the sessions.`;
+        break;
+      default:
+        message = `Hello Khushyog! 👋
+I'm interested in your services. Please share more details.`;
+    }
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
 
   const offerings = [
     {
       icon: '🧘',
       title: 'Offline Yoga Classes',
       description: 'Daily guided yoga classes to improve strength, flexibility, and overall wellbeing.',
-      link: '/offline-yoga'
+      link: '/offline-yoga',
+      bookingType: 'offline'
     },
     {
       icon: '💻',
       title: 'Online Yoga Classes',
       description: 'Practice yoga from the comfort of your home with structured and guided sessions.',
-      link: '/online-yoga'
+      link: '/online-yoga',
+      bookingType: 'online'
     },
     {
       icon: '🎓',
       title: 'Teacher Training Course',
       description: 'A deeper journey for those who want to learn yoga in depth and share it with others.',
-      link: '/teacher-training'
+      link: '/teacher-training',
+      bookingType: 'teacher'
     },
     {
       icon: '🧘‍♀️',
       title: 'Meditation Classes',
       description: 'Learn techniques to calm the mind, develop awareness, and experience inner peace.',
-      link: '/meditation'
+      link: '/meditation',
+      bookingType: 'meditation'
     },
     {
       icon: '✨',
       title: 'Theta Healing Sessions',
       description: 'Transform subconscious beliefs and emotional patterns through deep energy healing.',
-      link: '/theta-healing'
+      link: '/theta-healing',
+      bookingType: 'theta'
     },
     {
       icon: '🌿',
       title: 'Pranic Healing Sessions',
       description: 'Energy healing technique that helps balance and cleanse the body’s energy system.',
-      link: '/pranic-healing'
+      link: '/pranic-healing',
+      bookingType: 'pranic'
     }
   ];
 
@@ -102,7 +155,7 @@ const Home = () => {
               and teacher training programs designed to support your physical, emotional, 
               and spiritual wellbeing.
             </p>
-            
+        
           </motion.div>
           
           <motion.div
@@ -111,13 +164,7 @@ const Home = () => {
             transition={{ duration: 0.8, delay: 0.3 }}
             className="hero-visual"
           >
-            <div className="floating-lotus">
-              <div className="lotus-petal"></div>
-              <div className="lotus-petal"></div>
-              <div className="lotus-petal"></div>
-              <div className="lotus-petal"></div>
-              <div className="lotus-petal"></div>
-            </div>
+            <img src="/images/logo.jpeg" alt="Khushyog Logo" className="hero-logo" />
           </motion.div>
         </div>
       </section>
@@ -151,9 +198,12 @@ const Home = () => {
               <div className="offering-icon">{offering.icon}</div>
               <h3>{offering.title}</h3>
               <p>{offering.description}</p>
-              <Link to={offering.link} className="card-link">
-                Learn More →
-              </Link>
+              <div className="card-actions">
+                <Link to={offering.link} className="card-link">
+                  Learn More →
+                </Link>
+               
+              </div>
             </motion.div>
           ))}
         </div>
@@ -260,19 +310,13 @@ const Home = () => {
           <p>Start your journey toward better health and inner peace.</p>
           <p className="cta-tagline">Join Khushyog today</p>
           <button 
-            onClick={() => setIsBookingModalOpen(true)}
+            onClick={() => handleWhatsAppRedirect('trial')}
             className="btn btn-primary btn-large"
           >
             Book Your Trial Class – ₹200
           </button>
         </motion.div>
       </section>
-
-      {/* Booking Modal */}
-      <BookingModal 
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-      />
     </motion.div>
   );
 };

@@ -1,12 +1,28 @@
 // pages/OfflineYoga.jsx
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import BookingModal from '../components/BookingModal';
 import './OfflineYoga.css';
 
 const OfflineYoga = () => {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const phoneNumber = "918999639059"; // +91 8999639059
+
+  const handleWhatsAppRedirect = (type = 'offline', price = '') => {
+    let message = "";
+    
+    if (type === 'trial') {
+      message = `Hello Khushyog! 👋
+I'm interested in booking a Trial Yoga Class (₹200). 
+Please share more details about the offline class schedule.`;
+    } else {
+      message = `Hello Khushyog! 👋
+I'm interested in your Offline Yoga Classes. 
+Please share more details about the schedule and pricing.`;
+    }
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
 
   const benefits = [
     { icon: '💪', title: 'Build Strength', desc: 'Develop physical strength and endurance' },
@@ -32,25 +48,29 @@ const OfflineYoga = () => {
       plan: 'Trial Class',
       price: '₹200',
       features: ['Single Session', 'All Equipment Provided', 'Beginner Friendly'],
-      popular: false
+      popular: false,
+      type: 'trial'
     },
     { 
       plan: '1 Month',
       price: '₹2500',
       features: ['Unlimited Classes', 'Priority Booking', 'Personal Guidance'],
-      popular: true
+      popular: true,
+      type: 'monthly'
     },
     { 
       plan: '3 Months',
       price: '₹6000',
       features: ['Save ₹1500', 'Monthly Progress Review', 'Free Workshop Access'],
-      popular: false
+      popular: false,
+      type: 'quarterly'
     },
     { 
       plan: '6 Months',
       price: '₹10000',
       features: ['Save ₹5000', 'Personalized Plan', 'Diet Consultation'],
-      popular: false
+      popular: false,
+      type: 'halfyearly'
     }
   ];
 
@@ -82,6 +102,18 @@ const OfflineYoga = () => {
             Daily yoga sessions designed to improve physical health, 
             flexibility, and mental calmness
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <button 
+              onClick={() => handleWhatsAppRedirect('trial')}
+              className="btn btn-primary btn-large"
+            >
+              Book Trial Class – ₹200
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -139,6 +171,7 @@ const OfflineYoga = () => {
                 <th>Day</th>
                 <th>Time</th>
                 <th>Class Type</th>
+                <th>Action</th>
               </tr>
             </thead>
             <tbody>
@@ -153,6 +186,14 @@ const OfflineYoga = () => {
                   <td>{item.day}</td>
                   <td>{item.time}</td>
                   <td>{item.type}</td>
+                  <td>
+                    <button 
+                      onClick={() => handleWhatsAppRedirect('offline')}
+                      className="btn btn-small btn-outline"
+                    >
+                      Book
+                    </button>
+                  </td>
                 </motion.tr>
               ))}
             </tbody>
@@ -193,7 +234,7 @@ const OfflineYoga = () => {
                 ))}
               </ul>
               <button 
-                onClick={() => setIsBookingModalOpen(true)}
+                onClick={() => handleWhatsAppRedirect(plan.type, plan.price)}
                 className="btn btn-primary plan-btn"
               >
                 Book Now
@@ -214,19 +255,13 @@ const OfflineYoga = () => {
           <h2>Ready to Start Your Journey?</h2>
           <p>Book your trial class today and experience the difference</p>
           <button 
-            onClick={() => setIsBookingModalOpen(true)}
+            onClick={() => handleWhatsAppRedirect('trial')}
             className="btn btn-primary btn-large"
           >
             Book Trial Class – ₹200
           </button>
         </motion.div>
       </section>
-
-      {/* Booking Modal */}
-      <BookingModal 
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-      />
     </motion.div>
   );
 };

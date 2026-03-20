@@ -4,6 +4,28 @@ import { Link } from 'react-router-dom';
 import './PranicHealing.css';
 
 const PranicHealing = () => {
+  const phoneNumber = "918999639059"; // +91 8999639059
+
+  const handleWhatsAppRedirect = () => {
+    const message = `Hello Khushyog! 👋
+I'm interested in Pranic Healing Sessions (₹1500 per session). 
+Please share more details about the sessions and availability.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
+
+  const handlePackageRedirect = () => {
+    const message = `Hello Khushyog! 👋
+I'm interested in the Pranic Healing Package (4 sessions for ₹5000). 
+Please share more details about the sessions and availability.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
+
   const principles = [
     {
       title: 'Energy Body',
@@ -89,6 +111,18 @@ const PranicHealing = () => {
           >
             Energy healing technique that helps balance and cleanse the body's energy system
           </motion.p>
+          <motion.div
+            initial={{ opacity: 0, y: 50 }}
+            animate={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8, delay: 0.4 }}
+          >
+            <button 
+              onClick={handleWhatsAppRedirect}
+              className="btn btn-primary btn-large"
+            >
+              Book Your Session
+            </button>
+          </motion.div>
         </div>
       </section>
 
@@ -268,9 +302,20 @@ const PranicHealing = () => {
               <span>In-person or Distance healing</span>
             </div>
           </div>
-          <Link to="/contact" className="btn btn-primary btn-large">
-            Book Your Session
-          </Link>
+          <div className="session-buttons">
+            <button 
+              onClick={handleWhatsAppRedirect}
+              className="btn btn-primary btn-large"
+            >
+              Book Single Session
+            </button>
+            <button 
+              onClick={handlePackageRedirect}
+              className="btn btn-secondary btn-large"
+            >
+              Book Package (4 Sessions)
+            </button>
+          </div>
         </motion.div>
       </section>
 
@@ -284,9 +329,12 @@ const PranicHealing = () => {
         >
           <h2>Experience the Healing Power of Prana</h2>
           <p>Begin your healing journey today</p>
-          <Link to="/contact" className="btn btn-primary btn-large">
+          <button 
+            onClick={handleWhatsAppRedirect}
+            className="btn btn-primary btn-large"
+          >
             Schedule Your First Session
-          </Link>
+          </button>
         </motion.div>
       </section>
     </motion.div>

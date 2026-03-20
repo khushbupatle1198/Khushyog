@@ -1,12 +1,20 @@
 // pages/About.jsx
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
-import { useState } from 'react';
-import BookingModal from '../components/BookingModal';
 import './About.css';
 
 const About = () => {
-  const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
+  const phoneNumber = "918999639059"; // +91 8999639059
+
+  const handleWhatsAppRedirect = () => {
+    const message = `Hello Khushyog! 👋
+I'm interested in booking a Trial Yoga Class (₹200). 
+Please share more details about the class schedule.`;
+
+    const encodedMessage = encodeURIComponent(message);
+    const whatsappURL = `https://wa.me/${phoneNumber}?text=${encodedMessage}`;
+    window.open(whatsappURL, '_blank');
+  };
 
   return (
     <motion.div
@@ -94,7 +102,7 @@ const About = () => {
           >
             <div className="founder-image-wrapper">
               <div className="founder-image-placeholder">
-                <span>Khushyali Singh</span>
+                <img src="/images/founder.jpeg" alt="Khushyali Singh" />
               </div>
             </div>
           </motion.div>
@@ -190,19 +198,13 @@ const About = () => {
           <p>Yoga, meditation, and healing can transform the way we experience life.</p>
           <p>We invite you to become part of the Khushyog community.</p>
           <button 
-            onClick={() => setIsBookingModalOpen(true)}
+            onClick={handleWhatsAppRedirect}
             className="btn btn-primary btn-large"
           >
             Book Your Trial Yoga Class today – ₹200
           </button>
         </motion.div>
       </section>
-
-      {/* Booking Modal */}
-      <BookingModal 
-        isOpen={isBookingModalOpen}
-        onClose={() => setIsBookingModalOpen(false)}
-      />
     </motion.div>
   );
 };
