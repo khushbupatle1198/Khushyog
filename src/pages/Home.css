@@ -74,9 +74,9 @@
 }
 
 .hero-title {
-  font-size: 4rem;
+  font-size: 3rem;
   font-family: 'Playfair Display', serif;
-  line-height: 1.2;
+  line-height: 1;
   margin-bottom: 1.5rem;
   color: white;
 }

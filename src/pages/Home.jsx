@@ -182,17 +182,7 @@ I'm interested in your services. Please share more details.`;
               and spiritual wellbeing.
             </p>
             
-            <div className="hero-buttons">
-              <button 
-                onClick={() => handleWhatsAppRedirect('trial')}
-                className="btn btn-primary btn-large"
-              >
-                Start Your Journey
-              </button>
-              <Link to="/contact" className="btn btn-outline btn-large">
-                Learn More
-              </Link>
-            </div>
+            
           </motion.div>
         </div>
       </section>
