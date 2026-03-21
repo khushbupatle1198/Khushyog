@@ -64,9 +64,7 @@ I'm interested in your services. Please share more details.`;
     '/images/corosal/corosal (4).jpeg',
     '/images/corosal/corosal (5).jpeg',
     '/images/corosal/corosal (6).jpeg',
-    '/images/corosal/corosal (7).jpeg',
-    '/images/corosal/corosal (8).jpeg',
-    '/images/corosal/corosal (9).jpeg',
+    
   ];
 
   // Carousel state
@@ -134,7 +132,6 @@ I'm interested in your services. Please share more details.`;
     link: '/offline-yoga',
     bookingType: 'offline',
     image: '/images/offring/offline.jpeg',
-   
   },
   {
     icon: '💻',
@@ -142,8 +139,17 @@ I'm interested in your services. Please share more details.`;
     description: 'Practice yoga from the comfort of your home with structured and guided sessions.',
     link: '/online-yoga',
     bookingType: 'online',
-    image: '/images/offring/online.png',
-    
+    image: '/images/offring/online.jpeg',
+  },
+  {
+    icon: '👤',
+    title: 'Personal Yoga Training',
+    description: 'One-on-one personalized yoga sessions tailored to your needs - available both online and offline.',
+    link: '/personal-yoga',
+    bookingType: 'personal',
+    image: '/images/offring/personal.jpeg',
+    badge: 'Online & Offline',
+    badgeColor: 'linear-gradient(135deg, #FF6B6B, #FFA07A)',
   },
   {
     icon: '🎓',
@@ -152,7 +158,6 @@ I'm interested in your services. Please share more details.`;
     link: '/teacher-training',
     bookingType: 'teacher',
     image: '/images/offring/teacher.jpeg',
-   
   },
   {
     icon: '🧘‍♀️',
@@ -160,8 +165,7 @@ I'm interested in your services. Please share more details.`;
     description: 'Learn techniques to calm the mind, develop awareness, and experience inner peace.',
     link: '/meditation',
     bookingType: 'meditation',
-    image: '/images/offring/meditation.jpg',
-   
+    image: '/images/offring/meditation.jpeg',
   },
   {
     icon: '✨',
@@ -170,7 +174,6 @@ I'm interested in your services. Please share more details.`;
     link: '/theta-healing',
     bookingType: 'theta',
     image: '/images/offring/theta.jpeg',
-    
   },
   {
     icon: '🌿',
@@ -178,8 +181,7 @@ I'm interested in your services. Please share more details.`;
     description: 'Energy healing technique that helps balance and cleanse the body’s energy system.',
     link: '/pranic-healing',
     bookingType: 'pranic',
-    image: '/images/offring/pranic.jpg',
-   
+    image: '/images/offring/pranic.jpeg',
   }
 ];
 

@@ -47,6 +47,7 @@ const Header = ({ scrolled }) => {
     { path: '/about', label: 'About' },
     { path: '/offline-yoga', label: 'Offline Yoga' },
     { path: '/online-yoga', label: 'Online Yoga' },
+    { path: '/personal-yoga', label: 'Personal Yoga' },
     { path: '/teacher-training', label: 'Teacher Training' },
     { path: '/meditation', label: 'Meditation' },
     { path: '/theta-healing', label: 'Theta Healing' },

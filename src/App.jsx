@@ -19,6 +19,7 @@ import ThetaHealing from './pages/ThetaHealing';
 import PranicHealing from './pages/PranicHealing';
 import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
+import PersonalYoga from './pages/PersonalYoga';
 
 // Main App component
 function App() {
@@ -43,6 +44,7 @@ function App() {
               <Route path="/about" element={<About />} />
               <Route path="/offline-yoga" element={<OfflineYoga />} />
               <Route path="/online-yoga" element={<OnlineYoga />} />
+              <Route path="/personal-yoga" element={<PersonalYoga />} />
               <Route path="/teacher-training" element={<TeacherTraining />} />
               <Route path="/meditation" element={<Meditation />} />
               <Route path="/theta-healing" element={<ThetaHealing />} />
