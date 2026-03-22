@@ -109,23 +109,7 @@ Please share the itinerary, pricing, and what's included in the retreat package.
     'Travel insurance'
   ];
 
-  const pricing = [
-    {
-      roomType: 'Shared Room (2-3 persons)',
-      price: '₹18,000',
-      description: 'Perfect for solo travelers or friends'
-    },
-    {
-      roomType: 'Private Room (Single Occupancy)',
-      price: '₹25,000',
-      description: 'For those seeking personal space and quiet'
-    },
-    {
-      roomType: 'Couple Package (Shared Room)',
-      price: '₹35,000',
-      description: 'For two people sharing a private room'
-    }
-  ];
+  
 
   return (
     <motion.div
@@ -310,42 +294,7 @@ Please share the itinerary, pricing, and what's included in the retreat package.
         </div>
       </section>
 
-      {/* Pricing Section */}
-      <section className="pricing-section-retreat">
-        <motion.div
-          initial={{ opacity: 0, y: 50 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true }}
-          className="section-header"
-        >
-          <h2 className="section-title">Investment</h2>
-          <p className="section-subtitle">Choose your accommodation style</p>
-        </motion.div>
-
-        <div className="pricing-grid-retreat">
-          {pricing.map((plan, index) => (
-            <motion.div
-              key={index}
-              initial={{ opacity: 0, y: 50 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ delay: index * 0.1 }}
-              className="pricing-card-retreat"
-            >
-              <h3 className="room-type">{plan.roomType}</h3>
-              <div className="room-price">{plan.price}</div>
-              <p className="room-description">{plan.description}</p>
-              <button 
-                onClick={() => handleWhatsAppRedirect('retreat')}
-                className="btn btn-primary plan-btn-retreat"
-              >
-                Book Now
-              </button>
-            </motion.div>
-          ))}
-        </div>
-        <p className="pricing-note">*All prices are per person for the 4-day, 3-night retreat package.</p>
-      </section>
+     
 
       {/* CTA Section */}
       <section className="retreat-cta">
