@@ -6,6 +6,17 @@ import BookingModal from '../components/BookingModal'; // Add this import
 import './Contact.css';
 
 const Contact = () => {
+
+  const navigate = useNavigate();
+  useEffect(() => {
+  const timer = setTimeout(() => {
+    navigate('/ad-break');
+  }, 30000); // 30 seconds
+  
+  return () => clearTimeout(timer);
+}, [navigate]);
+
+
   const [isBookingModalOpen, setIsBookingModalOpen] = useState(false);
   const [formData, setFormData] = useState({
     name: '',

@@ -52,6 +52,7 @@ const Header = ({ scrolled }) => {
     { path: '/meditation', label: 'Meditation' },
     { path: '/theta-healing', label: 'Theta Healing' },
     { path: '/pranic-healing', label: 'Pranic Healing' },
+    { path: '/retreat-dharamshala', label: 'Retreat' },
     { path: '/gallery', label: 'Gallery' },
     { path: '/contact', label: 'Contact' },
     

@@ -1,11 +1,14 @@
-// pages/Home.jsx - Updated Hero Section
+// pages/Home.jsx - Updated with proper popup functionality
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import './Home.css';
 
 const Home = () => {
+ 
   const phoneNumber = "918999639059"; // +91 8999639059
+
+ 
 
   const handleWhatsAppRedirect = (type, price = '') => {
     let message = "";
@@ -64,7 +67,6 @@ I'm interested in your services. Please share more details.`;
     '/images/corosal/corosal (4).jpeg',
     '/images/corosal/corosal (5).jpeg',
     '/images/corosal/corosal (6).jpeg',
-    
   ];
 
   // Carousel state
@@ -125,65 +127,73 @@ I'm interested in your services. Please share more details.`;
   };
 
   const offerings = [
-  {
-    icon: '🧘',
-    title: 'Offline Yoga Classes',
-    description: 'Daily guided yoga classes to improve strength, flexibility, and overall wellbeing.',
-    link: '/offline-yoga',
-    bookingType: 'offline',
-    image: '/images/offring/offline.jpeg',
-  },
-  {
-    icon: '💻',
-    title: 'Online Yoga Classes',
-    description: 'Practice yoga from the comfort of your home with structured and guided sessions.',
-    link: '/online-yoga',
-    bookingType: 'online',
-    image: '/images/offring/online.jpeg',
-  },
-  {
-    icon: '👤',
-    title: 'Personal Yoga Training',
-    description: 'One-on-one personalized yoga sessions tailored to your needs - available both online and offline.',
-    link: '/personal-yoga',
-    bookingType: 'personal',
-    image: '/images/offring/personal.jpeg',
-    badge: 'Online & Offline',
-    badgeColor: 'linear-gradient(135deg, #FF6B6B, #FFA07A)',
-  },
-  {
-    icon: '🎓',
-    title: 'Teacher Training Course',
-    description: 'A deeper journey for those who want to learn yoga in depth and share it with others.',
-    link: '/teacher-training',
-    bookingType: 'teacher',
-    image: '/images/offring/teacher.jpeg',
-  },
-  {
-    icon: '🧘‍♀️',
-    title: 'Meditation Classes',
-    description: 'Learn techniques to calm the mind, develop awareness, and experience inner peace.',
-    link: '/meditation',
-    bookingType: 'meditation',
-    image: '/images/offring/meditation.jpeg',
-  },
-  {
-    icon: '✨',
-    title: 'Theta Healing Sessions',
-    description: 'Transform subconscious beliefs and emotional patterns through deep energy healing.',
-    link: '/theta-healing',
-    bookingType: 'theta',
-    image: '/images/offring/theta.jpeg',
-  },
-  {
-    icon: '🌿',
-    title: 'Pranic Healing Sessions',
-    description: 'Energy healing technique that helps balance and cleanse the body’s energy system.',
-    link: '/pranic-healing',
-    bookingType: 'pranic',
-    image: '/images/offring/pranic.jpeg',
-  }
-];
+    {
+      icon: '🧘',
+      title: 'Offline Yoga Classes',
+      description: 'Daily guided yoga classes to improve strength, flexibility, and overall wellbeing.',
+      link: '/offline-yoga',
+      bookingType: 'offline',
+      image: '/images/offring/offline.jpeg',
+    },
+    {
+      icon: '💻',
+      title: 'Online Yoga Classes',
+      description: 'Practice yoga from the comfort of your home with structured and guided sessions.',
+      link: '/online-yoga',
+      bookingType: 'online',
+      image: '/images/offring/online.jpeg',
+    },
+    {
+      icon: '👤',
+      title: 'Personal Yoga Training',
+      description: 'One-on-one personalized yoga sessions tailored to your needs - available both online and offline.',
+      link: '/personal-yoga',
+      bookingType: 'personal',
+      image: '/images/offring/personal.jpeg',
+      badge: 'Online & Offline',
+      badgeColor: 'linear-gradient(135deg, #FF6B6B, #FFA07A)',
+    },
+    {
+      icon: '🎓',
+      title: 'Teacher Training Course',
+      description: 'A deeper journey for those who want to learn yoga in depth and share it with others.',
+      link: '/teacher-training',
+      bookingType: 'teacher',
+      image: '/images/offring/teacher.jpeg',
+    },
+    {
+      icon: '🧘‍♀️',
+      title: 'Meditation Classes',
+      description: 'Learn techniques to calm the mind, develop awareness, and experience inner peace.',
+      link: '/meditation',
+      bookingType: 'meditation',
+      image: '/images/offring/meditation.jpeg',
+    },
+    {
+      icon: '✨',
+      title: 'Theta Healing Sessions',
+      description: 'Transform subconscious beliefs and emotional patterns through deep energy healing.',
+      link: '/theta-healing',
+      bookingType: 'theta',
+      image: '/images/offring/theta.jpeg',
+    },
+    {
+      icon: '🌿',
+      title: 'Pranic Healing Sessions',
+      description: 'Energy healing technique that helps balance and cleanse the body’s energy system.',
+      link: '/pranic-healing',
+      bookingType: 'pranic',
+      image: '/images/offring/pranic.jpeg',
+    },
+    {
+      icon: '🏔️',
+      title: 'Yoga & Wellness Retreat (Dharamshala)',
+      description: 'A peaceful retreat in Dharamshala to slow down, heal, and reconnect with yourself through yoga, meditation, and nature.',
+      link: '/retreat-dharamshala',
+      bookingType: 'retreat',
+      image: '/images/offring/retreat.jpeg',
+    }
+  ];
 
   const testimonials = [
     {
