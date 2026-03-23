@@ -1,18 +1,23 @@
-// pages/OfflineYoga.jsx
 import { motion } from 'framer-motion';
 import { Link } from 'react-router-dom';
+import { useState } from 'react';
 import './OfflineYoga.css';
 
 const OfflineYoga = () => {
   const phoneNumber = "918999639059"; // +91 8999639059
+  const [activeTab, setActiveTab] = useState('morning'); // 'morning' or 'evening'
 
-  const handleWhatsAppRedirect = (type = 'offline', price = '') => {
+  const handleWhatsAppRedirect = (type = 'offline', price = '', timeSlot = '') => {
     let message = "";
     
     if (type === 'trial') {
       message = `Hello Khushyog! 👋
 I'm interested in booking a Trial Yoga Class (₹200). 
 Please share more details about the offline class schedule.`;
+    } else if (type === 'book') {
+      message = `Hello Khushyog! 👋
+I'm interested in booking a class at ${timeSlot}.
+Please confirm availability and share more details.`;
     } else {
       message = `Hello Khushyog! 👋
 I'm interested in your Offline Yoga Classes. 
@@ -33,15 +38,28 @@ Please share more details about the schedule and pricing.`;
     { icon: '❤️', title: 'Better Health', desc: 'Improve overall wellbeing' }
   ];
 
-  const schedule = [
-    { day: 'Monday', time: '7:00 AM - 8:00 AM', type: 'Hatha Yoga' },
-    { day: 'Tuesday', time: '7:00 AM - 8:00 AM', type: 'Vinyasa Flow' },
-    { day: 'Wednesday', time: '7:00 AM - 8:00 AM', type: 'Hatha Yoga' },
-    { day: 'Thursday', time: '7:00 AM - 8:00 AM', type: 'Vinyasa Flow' },
-    { day: 'Friday', time: '7:00 AM - 8:00 AM', type: 'Hatha Yoga' },
-    { day: 'Saturday', time: '8:00 AM - 9:30 AM', type: 'Workshop' },
-    { day: 'Sunday', time: '8:00 AM - 9:00 AM', type: 'Restorative Yoga' }
+  // New Weekly Focus
+  const weeklyFocus = [
+    { day: 'Monday', focus: 'Balance Day', icon: '⚖️', description: 'Focus on balancing poses and stability' },
+    { day: 'Tuesday', focus: 'Arms Day', icon: '💪', description: 'Build upper body strength and arm balance' },
+    { day: 'Wednesday', focus: 'Heart Opening & Back Day', icon: '❤️', description: 'Chest opening and backbends' },
+    { day: 'Thursday', focus: 'Core Day', icon: '🎯', description: 'Strengthen abdominal muscles and core' },
+    { day: 'Friday', focus: 'Leg Day', icon: '🦵', description: 'Lower body strength and flexibility' },
+    { day: 'Saturday', focus: 'Funday', icon: '🎉', description: 'Fun flow with creative sequences' }
   ];
+
+  // New Time Batches
+  const timeBatches = {
+    morning: [
+      '6:00 – 7:00 AM',
+      '7:00 – 8:00 AM',
+      '8:00 – 9:00 AM',
+      '9:00 – 10:00 AM'
+    ],
+    evening: [
+      '5:15 – 6:15 PM'
+    ]
+  };
 
   const pricing = [
     { 
@@ -147,7 +165,38 @@ Please share more details about the schedule and pricing.`;
         </div>
       </section>
 
-      {/* Class Schedule */}
+      {/* Weekly Focus Section - New */}
+      <section className="weekly-focus-section">
+        <motion.div
+          initial={{ opacity: 0, y: 50 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          className="section-header"
+        >
+          <h2 className="section-title">Weekly Focus</h2>
+          <p className="section-subtitle">Each day has a unique theme to work on different aspects of your body</p>
+        </motion.div>
+
+        <div className="weekly-focus-grid">
+          {weeklyFocus.map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{ delay: index * 0.1 }}
+              className="focus-card"
+            >
+              <div className="focus-icon">{item.icon}</div>
+              <div className="focus-day">{item.day}</div>
+              <h3 className="focus-title">{item.focus}</h3>
+              <p className="focus-description">{item.description}</p>
+            </motion.div>
+          ))}
+        </div>
+      </section>
+
+      {/* Class Schedule Section - Updated with Time Batches */}
       <section className="schedule-section">
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -155,9 +204,25 @@ Please share more details about the schedule and pricing.`;
           viewport={{ once: true }}
           className="section-header"
         >
-          <h2 className="section-title">Weekly Schedule</h2>
-          <p className="section-subtitle">Join us for daily practice</p>
+          <h2 className="section-title">Class Schedule</h2>
+          <p className="section-subtitle">Choose your preferred time slot</p>
         </motion.div>
+
+        {/* Tab Buttons */}
+        <div className="schedule-tabs">
+          <button 
+            className={`tab-btn ${activeTab === 'morning' ? 'active' : ''}`}
+            onClick={() => setActiveTab('morning')}
+          >
+            🌅 Morning Batch
+          </button>
+          <button 
+            className={`tab-btn ${activeTab === 'evening' ? 'active' : ''}`}
+            onClick={() => setActiveTab('evening')}
+          >
+            🌙 Evening Batch
+          </button>
+        </div>
 
         <motion.div
           initial={{ opacity: 0, y: 50 }}
@@ -165,39 +230,32 @@ Please share more details about the schedule and pricing.`;
           viewport={{ once: true }}
           className="schedule-container"
         >
-          <table className="schedule-table">
-            <thead>
-              <tr>
-                <th>Day</th>
-                <th>Time</th>
-                <th>Class Type</th>
-                <th>Action</th>
-              </tr>
-            </thead>
-            <tbody>
-              {schedule.map((item, index) => (
-                <motion.tr
-                  key={index}
-                  initial={{ opacity: 0, x: -20 }}
-                  whileInView={{ opacity: 1, x: 0 }}
-                  viewport={{ once: true }}
-                  transition={{ delay: index * 0.1 }}
+          <div className="time-slots">
+            {timeBatches[activeTab].map((time, index) => (
+              <motion.div
+                key={index}
+                initial={{ opacity: 0, x: -20 }}
+                whileInView={{ opacity: 1, x: 0 }}
+                viewport={{ once: true }}
+                transition={{ delay: index * 0.1 }}
+                className="time-slot-card"
+              >
+                <div className="time-slot-icon">⏰</div>
+                <div className="time-slot-details">
+                  <div className="time-slot-time">{time}</div>
+                  <div className="time-slot-days">
+                    {activeTab === 'morning' ? 'Monday - Saturday' : 'Monday - Friday'}
+                  </div>
+                </div>
+                <button 
+                  onClick={() => handleWhatsAppRedirect('book', '', time)}
+                  className="btn btn-small btn-outline time-slot-btn"
                 >
-                  <td>{item.day}</td>
-                  <td>{item.time}</td>
-                  <td>{item.type}</td>
-                  <td>
-                    <button 
-                      onClick={() => handleWhatsAppRedirect('offline')}
-                      className="btn btn-small btn-outline"
-                    >
-                      Book
-                    </button>
-                  </td>
-                </motion.tr>
-              ))}
-            </tbody>
-          </table>
+                  Book Now
+                </button>
+              </motion.div>
+            ))}
+          </div>
         </motion.div>
       </section>
 

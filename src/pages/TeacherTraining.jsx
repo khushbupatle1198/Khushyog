@@ -17,23 +17,19 @@ Please share more details about the curriculum, schedule, and fees.`;
   };
 
   const curriculum = [
-    {
-      module: 'Module 1: Foundation',
-      topics: ['Yoga Philosophy', 'Anatomy & Physiology', 'Basic Asanas', 'Pranayama Basics']
-    },
-    {
-      module: 'Module 2: Deepening Practice',
-      topics: ['Advanced Asanas', 'Alignment & Safety', 'Sequencing', 'Teaching Methodology']
-    },
-    {
-      module: 'Module 3: Specialization',
-      topics: ['Therapeutic Yoga', 'Adjustments & Props', 'Prenatal Yoga', 'Restorative Yoga']
-    },
-    {
-      module: 'Module 4: Teaching Practice',
-      topics: ['Practice Teaching', 'Class Management', 'Ethics & Business', 'Final Assessment']
-    }
-  ];
+  { module: '1. Foundation of Yoga', topics: ['Philosophy & Awareness'] },
+  { module: '2. Pranayama & Breathwork', topics: ['Breathing Techniques', 'Energy Control'] },
+  { module: '3. Asana Practice & Alignment', topics: ['Postures', 'Correct Alignment', 'Safety'] },
+  { module: '4. Mind & Emotional Healing', topics: ['Mental Balance', 'Stress Release', 'Emotional Awareness'] },
+  { module: '5. Energy Work & Chakras', topics: ['Chakra System', 'Energy Flow', 'Balancing Techniques'] },
+  { module: '6. Teaching Skills & Confidence', topics: ['Public Speaking', 'Confidence Building'] },
+  { module: '7. Class Design & Sequencing', topics: ['Session Planning', 'Flow Creation'] },
+  { module: '8. Yoga Anatomy & Physiology', topics: ['Body Structure', 'Muscles & Movement'] },
+  { module: '9. Meditation & Mindfulness Practices', topics: ['Meditation Techniques', 'Mindfulness'] },
+  { module: '10. Business & Brand Building', topics: ['Personal Branding', 'Client Handling', 'Marketing Basics'] },
+  { module: '11. Ethics & Lifestyle of a Yoga Teacher', topics: ['Yogic Lifestyle', 'Professional Ethics'] },
+  { module: '12. Final Assessment & Certification', topics: ['Evaluation', 'Certification Process'] }
+];
 
   const features = [
     { icon: '📜', title: 'Certification', desc: 'Internationally recognized certificate' },
