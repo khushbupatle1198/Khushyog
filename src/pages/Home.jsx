@@ -196,25 +196,25 @@ I'm interested in your services. Please share more details.`;
   ];
 
   const testimonials = [
-    {
-      name: 'Priya Sharma',
-      text: 'Khushyog has helped me feel more peaceful and physically stronger. The environment is very positive.',
-      rating: 5,
-      avatar: 'https://randomuser.me/api/portraits/women/1.jpg'
-    },
-    {
-      name: 'Rahul Verma',
-      text: 'The healing session helped me understand patterns I was struggling with for years.',
-      rating: 5,
-      avatar: 'https://randomuser.me/api/portraits/men/2.jpg'
-    },
-    {
-      name: 'Anita Desai',
-      text: 'The yoga classes are transformative. I\'ve never felt better in my life!',
-      rating: 5,
-      avatar: 'https://randomuser.me/api/portraits/women/3.jpg'
-    }
-  ];
+  {
+    name: 'Khushbu Patle',
+    text: 'Khushyog has helped me feel more peaceful and physically stronger. The environment is very positive.',
+    rating: 5,
+    avatar: '/images/khushbu.jpeg'
+  },
+  {
+    name: 'Devendra Pikalmunde',
+    text: 'The healing session helped me understand patterns I was struggling with for years.',
+    rating: 5,
+    avatar: '/images/defalt.jpg'
+  },
+  {
+    name: 'Ankit Shinde',
+    text: 'The yoga classes are transformative. I\'ve never felt better in my life!',
+    rating: 5,
+    avatar: '/images/defalt.jpg'
+  }
+];
 
   return (
     <motion.div
