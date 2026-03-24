@@ -1,4 +1,4 @@
-// components/Header.jsx
+// components/Header.jsx - Updated with stacked text for two-word items
 import { Link, useLocation } from 'react-router-dom';
 import { useState, useEffect } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
@@ -27,7 +27,7 @@ const Header = ({ scrolled }) => {
     return () => {
       window.removeEventListener('resize', handleResize);
     };
-  }, [isOpen]); // Add isOpen as dependency
+  }, [isOpen]);
 
   // Prevent body scroll when menu is open
   useEffect(() => {
@@ -42,11 +42,23 @@ const Header = ({ scrolled }) => {
     };
   }, [isOpen]);
 
+  // Helper function to check if label has two words
+  const isTwoWordLabel = (label) => {
+    return label.split(' ').length === 2;
+  };
+
+  // Helper function to split label into words
+  const splitLabel = (label) => {
+    const words = label.split(' ');
+    return { first: words[0], second: words[1] };
+  };
+
   const navItems = [
     { path: '/', label: 'Home' },
     { path: '/about', label: 'About' },
     { path: '/offline-yoga', label: 'Offline Yoga' },
     { path: '/online-yoga', label: 'Online Yoga' },
+    { path: '/collage-workshop', label: 'Collage Workshop' },
     { path: '/personal-yoga', label: 'Personal Yoga' },
     { path: '/teacher-training', label: 'Teacher Training' },
     { path: '/meditation', label: 'Meditation' },
@@ -55,7 +67,6 @@ const Header = ({ scrolled }) => {
     { path: '/retreat-dharamshala', label: 'Retreat' },
     { path: '/gallery', label: 'Gallery' },
     { path: '/contact', label: 'Contact' },
-    
   ];
 
   // Animation variants for mobile menu
@@ -129,7 +140,14 @@ const Header = ({ scrolled }) => {
                 to={item.path} 
                 className={location.pathname === item.path ? 'active' : ''}
               >
-                <span className="nav-label">{item.label}</span>
+                {isTwoWordLabel(item.label) ? (
+                  <span className="nav-label-stacked">
+                    <span className="nav-word-top">{splitLabel(item.label).first}</span>
+                    <span className="nav-word-bottom">{splitLabel(item.label).second}</span>
+                  </span>
+                ) : (
+                  <span className="nav-label">{item.label}</span>
+                )}
                 {location.pathname === item.path && (
                   <motion.span 
                     className="active-indicator"

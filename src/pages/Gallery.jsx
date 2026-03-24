@@ -19,6 +19,16 @@ const Gallery = () => {
     { id: 10, src: '/images/gallery/yoga (10).jpeg' },
     { id: 11, src: '/images/gallery/yoga (11).jpeg' },
     { id: 12, src: '/images/gallery/yoga (12).jpeg' },
+    { id: 13, src: '/images/gallery/collage (1).jpeg' },
+    { id: 14, src: '/images/gallery/collage (2).jpeg' },
+    { id: 15, src: '/images/gallery/collage (3).jpeg' },
+    { id: 16, src: '/images/gallery/collage (4).jpeg' },
+    { id: 17, src: '/images/gallery/collage (5).jpeg' },
+    { id: 18, src: '/images/gallery/collage (6).jpeg' },
+    { id: 19, src: '/images/gallery/collage (7).jpeg' },
+    { id: 20, src: '/images/gallery/collage (8).jpeg' },
+    { id: 21, src: '/images/gallery/collage (9).jpeg' },
+    { id: 22, src: '/images/gallery/collage (10).jpeg' },
    
   ];
 

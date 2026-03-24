@@ -144,6 +144,15 @@ I'm interested in your services. Please share more details.`;
       image: '/images/offring/online.jpeg',
     },
     {
+      icon: '🎪',
+      title: 'Workshops & Wellness Sessions',
+      description: 'Customized wellness programs for corporates, colleges, and communities. Yoga therapy, stress relief, and healing for groups.',
+      link: '/collage-workshop',
+      bookingType: 'workshops',
+      image: '/images/offring/workshops.jpeg',
+    
+    },
+    {
       icon: '👤',
       title: 'Personal Yoga Training',
       description: 'One-on-one personalized yoga sessions tailored to your needs - available both online and offline.',

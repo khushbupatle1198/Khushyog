@@ -1,4 +1,4 @@
-/* components/Header.css - Updated */
+/* components/Header.css - Updated with stacked text support */
 @import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap');
 
 :root {
@@ -133,6 +133,7 @@
   border-radius: 6px;
   letter-spacing: 0.3px;
   text-transform: uppercase;
+  text-align: center;
 }
 
 .nav-menu-desktop a:hover {
@@ -148,9 +149,36 @@
   background: rgba(139, 94, 60, 0.08);
 }
 
+/* Normal single-line label */
 .nav-label {
   position: relative;
   z-index: 1;
+  display: inline-block;
+}
+
+/* Stacked label for two-word items */
+.nav-label-stacked {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  line-height: 1.2;
+  gap: 0px;
+}
+
+.nav-word-top,
+.nav-word-bottom {
+  display: block;
+  font-size: 0.7rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+}
+
+.nav-word-top {
+  margin-bottom: 2px;
+}
+
+.nav-word-bottom {
+  margin-top: 2px;
 }
 
 /* Active indicator - subtle */
@@ -342,6 +370,11 @@
     padding: 0.45rem 0.5rem;
   }
   
+  .nav-word-top,
+  .nav-word-bottom {
+    font-size: 0.65rem;
+  }
+  
   .nav-menu-desktop {
     gap: 0.2rem;
   }
@@ -351,6 +384,11 @@
   .nav-menu-desktop a {
     font-size: 0.68rem;
     padding: 0.4rem 0.45rem;
+  }
+  
+  .nav-word-top,
+  .nav-word-bottom {
+    font-size: 0.6rem;
   }
   
   .logo-text {

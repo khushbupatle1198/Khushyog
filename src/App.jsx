@@ -21,6 +21,7 @@ import Contact from './pages/Contact';
 import Gallery from './pages/Gallery';
 import PersonalYoga from './pages/PersonalYoga';
 import RetreatDharamshala from './pages/RetreatDharamshala';
+import Workshops from './pages/Workshops';
 
 // Wrapper component to handle YouTube-style ad breaks
 const AppContent = () => {
@@ -152,6 +153,7 @@ const AppContent = () => {
         <Route path="/about" element={<About />} />
         <Route path="/offline-yoga" element={<OfflineYoga />} />
         <Route path="/online-yoga" element={<OnlineYoga />} />
+        <Route path="/collage-workshop" element={<Workshops />} />
         <Route path="/personal-yoga" element={<PersonalYoga />} />
         <Route path="/teacher-training" element={<TeacherTraining />} />
         <Route path="/meditation" element={<Meditation />} />

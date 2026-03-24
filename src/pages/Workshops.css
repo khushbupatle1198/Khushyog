@@ -1,0 +1,448 @@
+/* pages/Workshops.css - Simplified */
+
+.workshops {
+  overflow-x: hidden;
+}
+
+/* Hero Section */
+.workshops-hero {
+  min-height: 70vh;
+  background: linear-gradient(135deg, #2C3E66 0%, #1A2A4F 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 120px 20px 80px;
+  overflow: hidden;
+}
+
+.workshops-hero-pattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle at 25% 50%, rgba(255,255,255,0.08) 1px, transparent 1px);
+  background-size: 50px 50px;
+  animation: floatPattern 20s linear infinite;
+}
+
+@keyframes floatPattern {
+  0% { transform: translate(0, 0); }
+  100% { transform: translate(50px, 50px); }
+}
+
+.workshops-hero-content {
+  position: relative;
+  z-index: 2;
+  max-width: 900px;
+}
+
+.hero-badge {
+  display: inline-block;
+  background: rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(10px);
+  padding: 0.5rem 1.5rem;
+  border-radius: 50px;
+  font-size: 0.9rem;
+  color: #E8F0FF;
+  margin-bottom: 1.5rem;
+  border: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.workshops-hero h1 {
+  font-size: 3.5rem;
+  font-family: 'Playfair Display', serif;
+  color: #FFFFFF;
+  margin-bottom: 1.5rem;
+  line-height: 1.2;
+}
+
+.hero-description {
+  font-size: 1.1rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+/* Locations List Section */
+.locations-list-section {
+  background: white;
+  padding: 80px 20px;
+}
+
+.locations-list {
+  max-width: 1000px;
+  margin: 0 auto;
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+}
+
+.location-list-item {
+  padding: 1.5rem;
+  background: linear-gradient(135deg, #F8FAFF 0%, #F0F4FD 100%);
+  border-radius: 20px;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(44, 62, 102, 0.1);
+}
+
+.location-list-item:hover {
+  transform: translateX(10px);
+  box-shadow: 0 10px 30px rgba(44, 62, 102, 0.1);
+  border-color: #2C3E66;
+}
+
+.location-details h3 {
+  font-size: 1.3rem;
+  color: #2C3E66;
+  margin-bottom: 0.5rem;
+}
+
+.location-details p {
+  color: #6B7A8F;
+  line-height: 1.6;
+  margin-bottom: 0.8rem;
+}
+
+.location-meta {
+  display: flex;
+  gap: 1rem;
+  flex-wrap: wrap;
+}
+
+.meta-badge {
+  background: white;
+  padding: 0.3rem 0.8rem;
+  border-radius: 20px;
+  font-size: 0.8rem;
+  color: #2C3E66;
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.05);
+}
+
+/* Focus Section */
+.focus-section {
+  background: linear-gradient(135deg, #F8FAFF 0%, #F0F4FD 100%);
+  padding: 80px 20px;
+}
+
+.focus-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.focus-card {
+  background: white;
+  padding: 2rem;
+  border-radius: 20px;
+  text-align: center;
+  transition: all 0.3s ease;
+  border: 1px solid rgba(44, 62, 102, 0.1);
+}
+
+.focus-card:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 15px 30px rgba(44, 62, 102, 0.1);
+  border-color: #2C3E66;
+}
+
+.focus-icon {
+  font-size: 3rem;
+  margin-bottom: 1rem;
+}
+
+.focus-card h3 {
+  font-size: 1.3rem;
+  color: #2C3E66;
+  margin-bottom: 0.8rem;
+}
+
+.focus-card p {
+  color: #6B7A8F;
+  line-height: 1.6;
+}
+
+/* Gallery Section - Simple Images */
+.gallery-section {
+  background: white;
+  padding: 80px 20px;
+}
+
+.gallery-grid-workshop {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
+  gap: 1.5rem;
+  max-width: 1400px;
+  margin: 0 auto;
+}
+
+.gallery-item {
+  position: relative;
+  aspect-ratio: 4/3;
+  border-radius: 20px;
+  overflow: hidden;
+  cursor: pointer;
+  box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+  transition: all 0.3s ease;
+}
+
+.gallery-item:hover {
+  transform: scale(1.02);
+  box-shadow: 0 15px 30px rgba(44, 62, 102, 0.2);
+}
+
+.gallery-item img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  transition: transform 0.5s ease;
+}
+
+.gallery-item:hover img {
+  transform: scale(1.05);
+}
+
+/* Vision Section */
+.vision-section {
+  background: linear-gradient(135deg, #2C3E66 0%, #1A2A4F 100%);
+  padding: 80px 20px;
+  text-align: center;
+}
+
+.vision-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.vision-icon {
+  font-size: 4rem;
+  margin-bottom: 1rem;
+}
+
+.vision-content h2 {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  color: white;
+  margin-bottom: 1.5rem;
+}
+
+.vision-content p {
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+  line-height: 1.8;
+}
+
+/* CTA Section */
+.workshops-cta {
+  background: white;
+  text-align: center;
+  padding: 80px 20px;
+}
+
+.workshops-cta-content {
+  max-width: 800px;
+  margin: 0 auto;
+}
+
+.workshops-cta-content h2 {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  background: linear-gradient(135deg, #2C3E66 0%, #5A7BB3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 1rem;
+}
+
+.workshops-cta-content > p {
+  font-size: 1.1rem;
+  color: #6B7A8F;
+  margin-bottom: 2rem;
+}
+
+.cta-features {
+  display: flex;
+  justify-content: center;
+  gap: 2rem;
+  flex-wrap: wrap;
+  margin-bottom: 2rem;
+}
+
+.cta-feature {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: #F8FAFF;
+  padding: 0.5rem 1rem;
+  border-radius: 30px;
+  color: #2C3E66;
+  font-weight: 500;
+}
+
+.cta-feature span:first-child {
+  font-size: 1.2rem;
+}
+
+.cta-note {
+  margin-top: 1rem;
+  font-size: 0.9rem;
+  color: #8A9BB0;
+}
+
+/* Lightbox */
+.lightbox {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.9);
+  z-index: 1000;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 2rem;
+  cursor: pointer;
+}
+
+.lightbox-content {
+  position: relative;
+  max-width: 90vw;
+  max-height: 90vh;
+  cursor: default;
+}
+
+.lightbox-content img {
+  max-width: 100%;
+  max-height: 90vh;
+  object-fit: contain;
+  border-radius: 8px;
+}
+
+.lightbox-close {
+  position: absolute;
+  top: -40px;
+  right: 0;
+  background: none;
+  border: none;
+  color: white;
+  font-size: 2rem;
+  cursor: pointer;
+  padding: 0.5rem;
+  transition: opacity 0.3s ease;
+}
+
+.lightbox-close:hover {
+  opacity: 0.7;
+}
+
+/* Section Header */
+.section-header {
+  text-align: center;
+  max-width: 800px;
+  margin: 0 auto 3rem;
+}
+
+.section-title {
+  font-size: 2.5rem;
+  font-family: 'Playfair Display', serif;
+  margin-bottom: 1rem;
+  background: linear-gradient(135deg, #2C3E66 0%, #5A7BB3 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+.section-subtitle {
+  font-size: 1.1rem;
+  color: #6B7A8F;
+}
+
+/* Button Styles */
+.btn {
+  padding: 0.8rem 1.8rem;
+  border-radius: 40px;
+  font-size: 1rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  border: none;
+  display: inline-block;
+}
+
+.btn-primary {
+  background: linear-gradient(135deg, #2C3E66 0%, #5A7BB3 100%);
+  color: white;
+}
+
+.btn-primary:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(44, 62, 102, 0.3);
+}
+
+.btn-large {
+  padding: 1rem 2rem;
+  font-size: 1.1rem;
+}
+
+/* Responsive */
+@media (max-width: 1024px) {
+  .workshops-hero h1 {
+    font-size: 2.8rem;
+  }
+  
+  .section-title {
+    font-size: 2.2rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .workshops-hero h1 {
+    font-size: 2rem;
+  }
+  
+  .hero-description {
+    font-size: 1rem;
+  }
+  
+  .section-title {
+    font-size: 1.8rem;
+  }
+  
+  .location-list-item {
+    text-align: center;
+  }
+  
+  .location-meta {
+    justify-content: center;
+  }
+  
+  .focus-grid {
+    grid-template-columns: 1fr;
+  }
+  
+  .gallery-grid-workshop {
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  }
+  
+  .cta-features {
+    gap: 1rem;
+  }
+  
+  .workshops-cta-content h2 {
+    font-size: 1.8rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .workshops-hero h1 {
+    font-size: 1.6rem;
+  }
+  
+  .gallery-grid-workshop {
+    grid-template-columns: 1fr;
+  }
+}
